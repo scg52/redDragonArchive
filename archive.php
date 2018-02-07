@@ -2,14 +2,14 @@
 
 			<div id="content">
 
-				<div id="inner-content" class="wrap cf">
+				<div id="inner-content" class="cf">
 
-						<main id="main" class="m-all t-2of3 d-5of7 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+						<main id="main" class="arcHome m-all cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
-							<?php
-							the_archive_title( '<h1 class="page-title">', '</h1>' );
-							the_archive_description( '<div class="taxonomy-description">', '</div>' );
-							?>
+                          <?php get_sidebar(); ?>
+
+                          <div class="arDiv">
+							
 							
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -28,11 +28,9 @@
 
 									<?php the_excerpt(); ?>
 
+									<p>balls</p>
+
 								</section>
-
-								<footer class="article-footer">
-
-								</footer>
 
 							</article>
 
@@ -56,12 +54,10 @@
 
 							<?php endif; ?>
 
-						</main>
+						  </div> <!-- arDiv -->
 
-					<?php get_sidebar(); ?>
+						</main>
 
 				</div>
 
 			</div>
-
-<?php get_footer(); ?>

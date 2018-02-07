@@ -79,7 +79,8 @@ html {
   -ms-text-size-adjust: 100%;
   /* 2 */
   -webkit-text-size-adjust: 100%;
-  /* 2 */ }
+  /* 2 */ 
+  margin-top: 0px !important;}
 
 /**
  * Remove default margin.
@@ -1928,7 +1929,7 @@ you can add resource intensive styles.
     margin-bottom: 0.75em; }
 
   .widget {
-    padding: 0 10px;
+    padding-right: 10px;
     margin: 2.2em 0; }
     .widget ul li {
       margin-bottom: 0.75em;
@@ -1952,6 +1953,23 @@ you can add resource intensive styles.
   }
   #s{
     width: 60%;
+    height: 2rem;
+    border-color: #9a0000;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 5px 0px 0px 5px;
+  }
+  #searchsubmit{
+    height: 2.375rem;
+    color: white;
+    background-color: #9a0000;
+    border-color: #9a0000;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 0px 5px 5px 0px;
+  }
+  .searchandfilter div{
+    margin-top: -25px;
   }
   /* text widget */
   /*********************
@@ -2123,8 +2141,8 @@ be set to display none.
 /*---------------------------------------------------------Sidebar---------------------------------------------------------*/
 
 .sidebar{
-	width: 15vw;
-    height: 99vh;
+	width: 13vw;
+    height: 99.85vh;
     padding-top: 50px;
     padding-left: 20px;
     -webkit-box-shadow: -2px 0px 11px 3px rgba(0,0,0,0.75);
@@ -2132,40 +2150,107 @@ be set to display none.
     box-shadow: -2px 0px 11px 3px rgba(0,0,0,0.75);
 }
 
+#Logo{
+  transform: scale(.75);
+  margin-top: -5rem;
+  margin-left: -3.5rem;
+}
+
+#search-4{
+  margin: 0;
+  margin-top: -1.85rem;
+}
+
+.searchandfilter h4{
+  margin: 1rem 0;
+}
+
+.cat-item-14 label input, .cat-item-15 label input, .cat-item-16 label input{
+  opacity: 0;
+}
+
+.cat-item-14 label, .cat-item-15 label, .cat-item-16 label{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.children{
+  margin: .5rem 0;
+}
+
+.cat-item{
+  padding-right: 0;
+  width: 100%;
+}
+
+.children .cat-item label {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.children .cat-item label input{opacity: 1;}
+
 /*-----------------------------------------------------------Home-----------------------------------------------------------*/
 
-#arcHome{
+.arcHome{
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
 	align-items: center;
 }
 
 .title{
-	margin: 0 auto;
+	display: grid;
+  grid-template-areas:". arctitle ."
+                      "swirl1 sbc swirl2";
+  text-align: center;
+}
+
+#arcTitle{grid-area: arctitle;}
+#sbc{grid-area: sbc;}
+
+#swirl1 .SwirlSvg #Artboard #Page-1 path, #swirl2 .SwirlSvg #Artboard #Page-1 path{
+  fill: #9a0000;
+}
+
+#swirl1{
+  margin-top: 2rem;
+  justify-self: end;
+  transform: scale(-1,1);
+  grid-area: swirl1;
+}
+
+#swirl2{
+  margin-top: 2rem;
+  justify-self: start;
+  grid-area: swirl2;
 }
 
 .icon-categories{
-	width: 75vw;
+	width: 87vw;
 	height: 90vh;
 }
 
-/*[title~=category-]{
+.catico{
 	display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-[title~=category-] > p {
+a:link .catico p {
 	margin: 0px auto;
 	text-decoration: none;
 }
 
-[title~=category-] > p:hover {
+a:hover .catico p{
 	margin: 0px auto;
 	text-decoration: underline;
-}*/
+}
 
 .location-category{
 	display: flex;
@@ -2181,3 +2266,9 @@ be set to display none.
 	align-items: center;
 }
 
+/*---------------------------------------------------------Archive---------------------------------------------------------*/
+
+.arDiv{
+  display: flex;
+  flex-flow: row wrap;
+}
