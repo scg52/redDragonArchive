@@ -10,7 +10,7 @@
 
 				<div id="inner-content" class="cf">
 
-						<main id="main" class="arcHome m-all cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog" style="background-image: url("<?php echo get_template_directory_uri();?>/library/images/paperTex.jpg");">
+						<main id="main" class="arcHome m-all cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
                     <?php get_sidebar(); ?>
 

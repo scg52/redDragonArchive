@@ -2,11 +2,22 @@
 
 			<div id="content">
 
-				<div id="inner-content" class="wrap cf">
+				<div id="inner-content" class="cf">
 
-					<main id="main" class="m-all t-2of3 d-5of7 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+					<main id="main" class="arcHome m-all cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
-						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+                        <?php if ( in_category('manuscript') ) {
+                            include 'single-manuscript.php';
+                        } elseif ( in_category('map') ) {
+                            include 'single-map.php';
+                        } else { ?>
+                            <div class="post-page"> 
+
+                            <?php get_sidebar();
+
+                            if ( have_posts() ) : while ( have_posts() ) : the_post();
+                            // ...
+                        ?>
 
 							<?php
 								/*
@@ -25,7 +36,7 @@
 								get_template_part( 'post-formats/format', get_post_format() );
 							?>
 
-						<?php endwhile; ?>
+						<?php endwhile;?>
 
 						<?php else : ?>
 
@@ -41,14 +52,14 @@
 									</footer>
 							</article>
 
-						<?php endif; ?>
+						<?php endif;?>
+
+					    </div> <!-- post -->
+
+					    <?php } ?>
 
 					</main>
-
-					<?php get_sidebar(); ?>
 
 				</div>
 
 			</div>
-
-<?php get_footer(); ?>

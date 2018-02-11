@@ -1411,10 +1411,7 @@ POSTS & CONTENT STYLES
 *********************/
 
 .hentry {
-  background-color: white;
-  border-radius: 3px;
-  margin-bottom: 1.5em;
-  border: 1px solid #cccccc; }
+  margin-bottom: 1.5em;}
   .hentry header {
     border-bottom: 1px solid #f8f9fa;
     padding: 1.5em; }
@@ -2142,12 +2139,14 @@ be set to display none.
 
 .sidebar{
 	width: 13vw;
-    height: 99.85vh;
-    padding-top: 50px;
-    padding-left: 20px;
-    -webkit-box-shadow: -2px 0px 11px 3px rgba(0,0,0,0.75);
-    -moz-box-shadow: -2px 0px 11px 3px rgba(0,0,0,0.75);
-    box-shadow: -2px 0px 11px 3px rgba(0,0,0,0.75);
+  padding-top: 50px;
+  padding-left: 20px;
+  -webkit-box-shadow: -2px 0px 11px 3px rgba(0,0,0,0.75);
+  -moz-box-shadow: -2px 0px 11px 3px rgba(0,0,0,0.75);
+  box-shadow: -2px 0px 11px 3px rgba(0,0,0,0.75);
+  position: sticky;
+  top: 25px;
+  background-color: #FAF0F0;
 }
 
 #Logo{
@@ -2156,9 +2155,16 @@ be set to display none.
   margin-left: -3.5rem;
 }
 
+#thing{
+  width: 1px;
+  height: 1px;
+  z-index: -1;
+}
+
 #search-4{
   margin: 0;
   margin-top: -1.85rem;
+  z-index: 900;
 }
 
 .searchandfilter h4{
@@ -2193,7 +2199,10 @@ be set to display none.
   cursor: pointer;
 }
 
-.children .cat-item label input{opacity: 1;}
+.children .cat-item label input{
+  opacity: 1;
+  cursor: pointer;
+}
 
 /*-----------------------------------------------------------Home-----------------------------------------------------------*/
 
@@ -2201,6 +2210,8 @@ be set to display none.
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+  background-image: "../images/paperTex.jpg";
+  background-color: #FAF0F0;
 }
 
 .title{
@@ -2233,6 +2244,8 @@ be set to display none.
 .icon-categories{
 	width: 87vw;
 	height: 90vh;
+  position: fixed;
+  margin-left: 13vw;
 }
 
 .catico{
@@ -2271,4 +2284,48 @@ a:hover .catico p{
 .arDiv{
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-around;
+  width: 87vw;
+  height: 90vh;
+}
+
+.arDiv .post{
+  width: 300px;
+  height: 300px;
+  margin: 10px 25px;
+}
+
+.entry-header{
+  background-color: #9a0000;
+}
+
+.entry-header .entry-title a{
+  color: white;
+  text-align: center;
+}
+
+.entry-header:hover .entry-title a{
+  color: #ffaaaa;
+}
+
+/*----------------------------------------------------------Post----------------------------------------------------------*/
+
+.post-page{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.hentry{
+  width: 80vw;
+}
+
+.jcarousel{
+  width: 50%;
+}
+
+.jcarousel li{
+  width: 50px;
+  height: 50px;
 }

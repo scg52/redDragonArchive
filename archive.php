@@ -24,11 +24,7 @@
 
 								<section class="entry-content cf">
 
-									<?php the_post_thumbnail( 'bones-thumb-300' ); ?>
-
-									<?php the_excerpt(); ?>
-
-									<p>balls</p>
+									<?php the_post_thumbnail(array(300, 212)); ?>
 
 								</section>
 
