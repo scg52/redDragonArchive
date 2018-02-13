@@ -18,10 +18,31 @@
 								</header>
 
 								<section class="entry-content cf">
-									<?php
-										// the content (pretty self explanatory huh)
-										the_content();
 
+									<div class="transcript">
+									<?php
+										// get translation info
+									    if (!isset($_GET["page"])) {
+									    	echo get_post_meta($post->ID, 'TranslationPage1', true);
+									    	echo get_post_meta($post->ID, 'Picture1', true);
+									    }
+									    else{
+									    	$pageNum = 'TranslationPage' . $_GET["page"];
+									    	$picNum = 'Picture' . $_GET["page"];
+										    echo get_post_meta($post->ID, $pageNum, true);
+										    echo get_post_meta($post->ID, $picNum, true);
+									    }
+										
+									?>
+									</div>
+									<div class="translation">
+									<?php
+                                        //Transcription and pagination
+										the_content();
+									?>
+									</div>
+
+                                    <?php
 										/*
 										 * Link Pages is used in case you have posts that are set to break into
 										 * multiple pages. You can remove this if you don't plan on doing that.
