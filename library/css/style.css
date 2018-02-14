@@ -1413,11 +1413,9 @@ POSTS & CONTENT STYLES
 .hentry {
   margin-bottom: 1.5em;}
   .hentry header {
-    border-bottom: 1px solid #f8f9fa;
     padding: 1.5em; }
   .hentry footer {
-    padding: 1.5em;
-    border-top: 1px solid #f8f9fa; }
+    padding: 1.5em; }
     .hentry footer p {
       margin: 0; }
 
@@ -2141,11 +2139,12 @@ be set to display none.
 	width: 13vw;
   padding-top: 50px;
   padding-left: 20px;
+  margin-top: -9rem;
   -webkit-box-shadow: -2px 0px 11px 3px rgba(0,0,0,0.75);
   -moz-box-shadow: -2px 0px 11px 3px rgba(0,0,0,0.75);
   box-shadow: -2px 0px 11px 3px rgba(0,0,0,0.75);
   position: sticky;
-  top: 25px;
+  top: -10px;
   background-color: #FAF0F0;
 }
 
@@ -2171,11 +2170,11 @@ be set to display none.
   margin: 1rem 0;
 }
 
-.cat-item-14 label input, .cat-item-15 label input, .cat-item-16 label input{
+.cat-item-2 label input, .cat-item-3 label input, .cat-item-4 label input{
   opacity: 0;
 }
 
-.cat-item-14 label, .cat-item-15 label, .cat-item-16 label{
+.cat-item-2 label, .cat-item-3 label, .cat-item-4 label{
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
@@ -2210,7 +2209,6 @@ be set to display none.
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-  background-image: "../images/paperTex.jpg";
   background-color: #FAF0F0;
 }
 
@@ -2272,6 +2270,11 @@ a:hover .catico p{
 	align-items: center;
 }
 
+.location-category a .catico img, .content-category a .catico img{
+  width: 166px;
+  height: 166px;
+}
+
 .content-category{
 	display: flex;
 	flex-direction: row;
@@ -2326,6 +2329,66 @@ a:hover .catico p{
 }
 
 .jcarousel li{
-  width: 50px;
-  height: 50px;
+  width: 50px !important;
+  height: 50px !important;
+}
+
+.manuscript{
+  display: grid;
+  grid-template-rows: 3rem 2fr .5fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas:"picture picture transcriptionButton translationButton"
+                      "picture picture content content"
+                      ". . pageButtons pageButtons";
+}
+
+#visible{
+  grid-area: content;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 0px 0px 10px 10px;
+}
+
+#transcription-content{
+  display: none;
+}
+
+#translation-content{
+  display: none;
+}
+
+#transcript-button{
+  cursor: pointer;
+  text-align: center;
+  color: white;
+  background-color: #5B0F0F;
+  font-size: 1.25rem;
+  padding: 5px;
+  grid-area: transcriptionButton;
+  border-radius: 10px 0px 0px 0px;
+}
+
+#translation-button{
+  cursor: pointer;
+  text-align: center;
+  color: white;
+  background-color: #9A0000;
+  font-size: 1.25rem;
+  padding: 5px;
+  grid-area: translationButton;
+  border-radius: 0px 10px 0px 0px;
+}
+
+.post-picture{
+  grid-area: picture;
+}
+
+.post-picture img{
+  height: 100% !important;
+  width: auto;
+  margin: 0 auto;
+}
+
+.buttons{
+  grid-area: pageButtons;
 }

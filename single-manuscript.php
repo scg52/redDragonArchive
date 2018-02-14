@@ -19,33 +19,101 @@
 
 								<section class="entry-content cf">
 
-									<div class="transcript">
+									<div class="manuscript">
+										<div id="transcript-button">
+											Transcript
+										</div>
+                                        <div id="translation-button">
+											Translation
+										</div>
+										<div id="visible">
+											<!-- uses dynamic content -->
+										</div>
 									<?php
-										// get translation info
+										// content
 									    if (!isset($_GET["page"])) {
-									    	echo get_post_meta($post->ID, 'TranslationPage1', true);
+
+									    	?> <div class="post-picture"> <?php
 									    	echo get_post_meta($post->ID, 'Picture1', true);
+									    	?></div> <!-- post-picture -->
+
+									    	<div id="translation-content"> <?php
+									    	echo get_post_meta($post->ID, 'Translation1', true);
+									    	?> </div> <!-- translation-content -->
+									    	 
+									    	<div id="transcription-content"> <?php
+									    	echo get_post_meta($post->ID, 'Transcription1', true);
+									    	?> </div>  <!-- transcription-content --> <?php
+
 									    }
 									    else{
-									    	$pageNum = 'TranslationPage' . $_GET["page"];
-									    	$picNum = 'Picture' . $_GET["page"];
-										    echo get_post_meta($post->ID, $pageNum, true);
+
+                                            ?> <div class="post-picture"> <?php
+										    $picNum = 'Picture' . $_GET["page"];
 										    echo get_post_meta($post->ID, $picNum, true);
+                                            ?> </div> <!-- post-picture -->
+
+                                            <div id="translation-content"> <?php
+									    	$pageNum = 'Translation' . $_GET["page"];
+										    echo get_post_meta($post->ID, $pageNum, true);
+                                            ?> </div> <!-- translation-content -->
+
+                                            <div id="transcription-content"> <?php
+										    $tranNum = 'Transcription' . $_GET["page"];
+										    echo get_post_meta($post->ID, $tranNum, true);
+										    ?> </div> <!-- transcription-content --> <?php
+
 									    }
 										
 									?>
-									</div>
-									<div class="translation">
+									</div> <!-- manuscript -->
+
+                                    <script type="text/javascript">
+                                        
+                                        var transcriptEl = document.getElementById('transcript-button');
+                                        var translationEl = document.getElementById('translation-button');
+
+                                        var transcriptCont = document.getElementById('transcription-content');
+                                    	var visibleEl = document.getElementById('visible');
+                                        visibleEl.innerHTML = transcriptCont.innerHTML;
+
+                                        transcriptEl.style.backgroundColor = "#5B0F0F";
+                                        
+                                        //show transcript
+                                        transcriptEl.addEventListener("click", function(){
+                                    	  var transcriptCont = document.getElementById('transcription-content');
+                                    	  var visibleEl = document.getElementById('visible');
+                                          visibleEl.innerHTML = transcriptCont.innerHTML;
+
+                                          this.style.backgroundColor = "#5B0F0F";
+                                          var translationEl = document.getElementById('translation-button');
+                                          translationEl.style.backgroundColor = "#9a0000";
+                                        });
+
+                                        //show translation
+                                        translationEl.addEventListener("click", function(){
+                                    	  var translationCont = document.getElementById('translation-content');
+                                    	  var visibleEl = document.getElementById('visible');
+                                          visibleEl.innerHTML = translationCont.innerHTML;
+
+                                          this.style.backgroundColor = "#5B0F0F";
+                                          var transcriptEl = document.getElementById('transcript-button');
+                                          transcriptEl.style.backgroundColor = "#9a0000";
+                                        });
+
+                                    </script>
+
+									<div class="buttons">
 									<?php
-                                        //Transcription and pagination
+                                        //pagination buttons
 										the_content();
 									?>
-									</div>
+									</div> <!-- buttons -->
 
                                     <?php
 										/*
 										 * Link Pages is used in case you have posts that are set to break into
-										 * multiple pages. You can remove this if you don't plan on doing that.
+										 * multiple pages.
 										*/
 										wp_link_pages( array(
 											'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'bonestheme' ) . '</span>',
