@@ -68,7 +68,27 @@
 									?>
 									</div> <!-- manuscript -->
 
-                                    <script type="text/javascript">
+									<div class="buttons">
+									<?php
+                                        //pagination buttons
+										the_content();
+									?>
+									</div> <!-- buttons -->
+
+                                    <?php
+										/*
+										 * Link Pages is used in case you have posts that are set to break into
+										 * multiple pages.
+										*/
+										wp_link_pages( array(
+											'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'bonestheme' ) . '</span>',
+											'after'       => '</div>',
+											'link_before' => '<span>',
+											'link_after'  => '</span>',
+										) );
+									?>
+
+									<script type="text/javascript">
                                         
                                         var transcriptEl = document.getElementById('transcript-button');
                                         var translationEl = document.getElementById('translation-button');
@@ -102,26 +122,7 @@
                                         });
 
                                     </script>
-
-									<div class="buttons">
-									<?php
-                                        //pagination buttons
-										the_content();
-									?>
-									</div> <!-- buttons -->
-
-                                    <?php
-										/*
-										 * Link Pages is used in case you have posts that are set to break into
-										 * multiple pages.
-										*/
-										wp_link_pages( array(
-											'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'bonestheme' ) . '</span>',
-											'after'       => '</div>',
-											'link_before' => '<span>',
-											'link_after'  => '</span>',
-										) );
-									?>
+                                    
 								</section> <!-- end article section -->
 
 							</article>

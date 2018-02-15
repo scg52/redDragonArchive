@@ -2210,6 +2210,9 @@ be set to display none.
 	flex-direction: row;
 	align-items: center;
   background-color: #FAF0F0;
+  background-image: url("../images/paperTex.jpg");
+  background-position: fixed;
+  background-size: cover;
 }
 
 .title{
@@ -2346,7 +2349,6 @@ a:hover .catico p{
   grid-area: content;
   padding: 1rem;
   background-color: white;
-  border-radius: 0px 0px 10px 10px;
 }
 
 #transcription-content{
@@ -2365,7 +2367,6 @@ a:hover .catico p{
   font-size: 1.25rem;
   padding: 5px;
   grid-area: transcriptionButton;
-  border-radius: 10px 0px 0px 0px;
 }
 
 #translation-button{
@@ -2376,7 +2377,6 @@ a:hover .catico p{
   font-size: 1.25rem;
   padding: 5px;
   grid-area: translationButton;
-  border-radius: 0px 10px 0px 0px;
 }
 
 .post-picture{
@@ -2385,7 +2385,6 @@ a:hover .catico p{
 
 .post-picture img{
   height: 100% !important;
-  width: auto;
   margin: 0 auto;
 }
 
