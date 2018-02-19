@@ -2137,15 +2137,15 @@ be set to display none.
 
 .sidebar{
 	width: 13vw;
-  padding-top: 20px;
+  padding-top: 50px;
   padding-left: 20px;
+  margin-top: -9rem;
   -webkit-box-shadow: -2px 0px 11px 3px rgba(0,0,0,0.75);
   -moz-box-shadow: -2px 0px 11px 3px rgba(0,0,0,0.75);
   box-shadow: -2px 0px 11px 3px rgba(0,0,0,0.75);
   position: sticky;
   top: -10px;
-  color: #FAF0F0;
-  background-color: #5f0000;
+  background-color: #FAF0F0;
 }
 
 #Logo{
@@ -2154,21 +2154,16 @@ be set to display none.
   margin-left: -3.5rem;
 }
 
-#logo{
+#thing{
   width: 1px;
   height: 1px;
   z-index: -1;
-  margin-left: -20px;
 }
 
-#logo img{
-  width: 100%;
-}
-
-#search-2{
-  margin: 1rem 0px;
+#search-4{
+  margin: 0;
+  margin-top: -1.85rem;
   z-index: 900;
-  max-width: 100%;
 }
 
 .searchandfilter h4{
@@ -2210,13 +2205,18 @@ be set to display none.
 
 /*-----------------------------------------------------------Home-----------------------------------------------------------*/
 
+body {
+  display: none;
+}
+
 .arcHome{
 	display: flex;
 	flex-direction: row;
-  background-color: #d5d5d5;
-  /*background-image: url("../images/text-bg.jpg");
+	align-items: center;
+  background-color: #FAF0F0;
+  background-image: url("../images/paperTex.jpg");
   background-position: fixed;
-  background-size: cover;*/
+  background-size: cover;
 }
 
 .title{
@@ -2289,10 +2289,6 @@ a:hover .catico p{
 	align-items: center;
 }
 
-.post-page .post{
-  width: 100%;
-}
-
 /*---------------------------------------------------------Archive---------------------------------------------------------*/
 
 .arDiv{
@@ -2303,10 +2299,10 @@ a:hover .catico p{
   height: 90vh;
 }
 
-.arDiv .post, .searchpage .post, .type-page{
+.arDiv .post{
   width: 300px;
   height: 300px;
-  margin: 25px;
+  margin: 10px 25px;
 }
 
 .entry-header{
@@ -2325,15 +2321,14 @@ a:hover .catico p{
 /*----------------------------------------------------------Post----------------------------------------------------------*/
 
 .post-page{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 87vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
 }
 
-.post-page .entrycontent{
-  padding-left: 0px;
-  padding-right: 0px;
+.hentry{
+  width: 80vw;
 }
 
 .jcarousel{
@@ -2347,12 +2342,11 @@ a:hover .catico p{
 
 .manuscript{
   display: grid;
-  grid-template-rows: 3rem 2fr;
+  grid-template-rows: 3rem 2fr .5fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-areas:"picture picture transcriptionButton translationButton"
-                      "picture picture content content";
-  border: solid 3px #5f0000;
-  background-color: #5f0000;
+                      "picture picture content content"
+                      ". . pageButtons pageButtons";
 }
 
 #visible{
@@ -2400,18 +2394,4 @@ a:hover .catico p{
 
 .buttons{
   grid-area: pageButtons;
-}
-
-.entry-content img{
-  border: solid 3px #5f0000;
-}
-
-/*---------------------------------------------------------Search---------------------------------------------------------*/
-
-.searchpage{
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  width: 100%;
-  margin-left: 30px;
 }
