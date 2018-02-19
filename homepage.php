@@ -28,28 +28,28 @@
                           </div>
 
                           <div class="location-category">
-                            <a href="/Archive/?category_name=england/">
+                            <a href="<?php echo get_template_directory_uri();?>/?category_name=england/">
                               <div class="category-england catico">
                           	    <img src="<?php echo get_template_directory_uri();?>/library/images/england.png">
                           	    <p>England</p>
                               <!-- svg line -->
                               </div>
                             </a>
-                            <a href="/Archive/?category_name=sierra-leone/">
+                            <a href="<?php echo get_template_directory_uri();?>/?category_name=sierra-leone/">
                               <div class="category-sierraLeone catico">
                                 <img src="<?php echo get_template_directory_uri();?>/library/images/sierraLeone.png">
                                 <p>Sierra Leone</p>
                                 <!-- svg line -->
                               </div>
                             </a>
-                            <a href="/Archive/?category_name=rio-de-la-plata/">
+                            <a href="<?php echo get_template_directory_uri();?>/?category_name=rio-de-la-plata/">
                               <div class="category-rioDeLaPlata catico">
                                 <img src="<?php echo get_template_directory_uri();?>/library/images/rioDeLaPlata.png">
                                 <p>Rio De La Plata</p>
                               <!-- svg line -->
                               </div>
                             </a>
-                            <a href="/Archive/?category_name=salvador/">
+                            <a href="<?php echo get_template_directory_uri();?>/?category_name=salvador/">
                               <div class="category-salvador catico">
                                 <img src="<?php echo get_template_directory_uri();?>/library/images/salvador.png">
                                 <p>Salvador</p>
@@ -58,14 +58,14 @@
                             </a>
                           </div> <!-- location category -->
                           <div class="content-category">
-                            <a href="/Archive/?category_name=manuscript/">
+                            <a href="<?php echo get_template_directory_uri();?>/?category_name=manuscript/">
                               <div class="category-manuscript catico">
                                 <img src="<?php echo get_template_directory_uri();?>/library/images/manuscripts.png">
                                 <p>Manuscripts</p>
                                 <!-- svg line -->
                               </div>
                             </a>
-                            <a href="/Archive/?category_name=map/">
+                            <a href="<?php echo get_template_directory_uri();?>/?category_name=map/">
                               <div class="category-map catico">
                                 <img src="<?php echo get_template_directory_uri();?>/library/images/maps.png">
                                 <p>Maps</p>
