@@ -1924,7 +1924,7 @@ you can add resource intensive styles.
     margin-bottom: 0.75em; }
 
   .widget {
-    padding-right: 10px;
+    /*padding-right: 10px;*/
     margin: 2.2em 0; }
     .widget ul li {
       margin-bottom: 0.75em;
@@ -1943,27 +1943,41 @@ you can add resource intensive styles.
   /* category widget */
   /* recent-comments widget */
   /* search widget */
-  #searchform div{
+  #searchform div {
     display: flex;
   }
+  #searchform div * {
+    transition: .2s;
+  }
+
   #s{
     width: 60%;
     height: 2rem;
-    border-color: #9a0000;
+    border-color: #fffcfc;
     border-width: 3px;
     border-style: solid;
-    border-radius: 5px 0px 0px 5px;
+    border-radius: 0px;
   }
   #searchsubmit{
     height: 2.375rem;
-    color: white;
-    background-color: #9a0000;
-    border-color: #9a0000;
+    color: #200;
+    background-color: #fffcfc;
+    border-color: #fffcfc;
     border-width: 3px;
     border-style: solid;
-    border-radius: 0px 5px 5px 0px;
+    /*border-radius: 0px 5px 5px 0px;*/
   }
-  .searchandfilter div{
+  
+  #searchform div:hover #searchsubmit {
+    border-color: #f23535;
+    background: #f23535;
+    color: #fffcfc;
+  }
+  #searchform div:hover #s {
+    border-color: #f23535;
+  }
+
+.searchandfilter div{
     margin-top: -25px;
   }
   /* text widget */
@@ -2133,15 +2147,30 @@ be set to display none.
     display: none; } }
 
 
+
+/*
+ .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------.   .----------------.  .----------------.  .----------------.  .----------------. 
+| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. | | .--------------. || .--------------. || .--------------. || .--------------. |
+| |     ______   | || | _____  _____ | || |    _______   | || |  _________   | || |     ____     | || | ____    ____ | | | |     ______   | || |     ____     | || |  ________    | || |  _________   | |
+| |   .' ___  |  | || ||_   _||_   _|| || |   /  ___  |  | || | |  _   _  |  | || |   .'    `.   | || ||_   \  /   _|| | | |   .' ___  |  | || |   .'    `.   | || | |_   ___ `.  | || | |_   ___  |  | |
+| |  / .'   \_|  | || |  | |    | |  | || |  |  (__ \_|  | || | |_/ | | \_|  | || |  /  .--.  \  | || |  |   \/   |  | | | |  / .'   \_|  | || |  /  .--.  \  | || |   | |   `. \ | || |   | |_  \_|  | |
+| |  | |         | || |  | '    ' |  | || |   '.___`-.   | || |     | |      | || |  | |    | |  | || |  | |\  /| |  | | | |  | |         | || |  | |    | |  | || |   | |    | | | || |   |  _|  _   | |
+| |  \ `.___.'\  | || |   \ `--' /   | || |  |`\____) |  | || |    _| |_     | || |  \  `--'  /  | || | _| |_\/_| |_ | | | |  \ `.___.'\  | || |  \  `--'  /  | || |  _| |___.' / | || |  _| |___/ |  | |
+| |   `._____.'  | || |    `.__.'    | || |  |_______.'  | || |   |_____|    | || |   `.____.'   | || ||_____||_____|| | | |   `._____.'  | || |   `.____.'   | || | |________.'  | || | |_________|  | |
+| |              | || |              | || |              | || |              | || |              | || |              | | | |              | || |              | || |              | || |              | |
+| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' | | '--------------' || '--------------' || '--------------' || '--------------' |
+ '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'   '----------------'  '----------------'  '----------------'  '----------------' 
+*/
+
+
 /*---------------------------------------------------------Sidebar---------------------------------------------------------*/
 
 .sidebar{
-	width: 13vw;
-  padding-top: 20px;
-  padding-left: 20px;
-  -webkit-box-shadow: -2px 0px 11px 3px rgba(0,0,0,0.75);
-  -moz-box-shadow: -2px 0px 11px 3px rgba(0,0,0,0.75);
-  box-shadow: -2px 0px 11px 3px rgba(0,0,0,0.75);
+	width: 13rem;
+  padding: 1rem;
+  -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
   position: sticky;
   top: -10px;
   color: #FAF0F0;
@@ -2154,13 +2183,12 @@ be set to display none.
   margin-left: -3.5rem;
 }
 
-#logo{
+/*#logo{
   width: 1px;
   height: 1px;
   z-index: -1;
-  margin-left: -20px;
 }
-
+*/
 #logo img{
   width: 100%;
 }
@@ -2170,26 +2198,39 @@ be set to display none.
   z-index: 900;
   max-width: 100%;
 }
-
-.searchandfilter h4{
-  margin: 1rem 0;
+#search-2 div {
+  height: 2.5rem;
 }
 
-.cat-item-2 label input, .cat-item-3 label input, .cat-item-4 label input{
+#sidebar div ul:first-child {
+  margin: 0;
+}
+.searchandfilter h4{
+  margin: 1rem 0;
+  display: none;
+}
+
+.cat-item-2 label input, 
+.cat-item-3 label input, 
+.cat-item-4 label input {
   opacity: 0;
 }
 
-.cat-item-2 label, .cat-item-3 label, .cat-item-4 label{
+.cat-item-2 label, 
+.cat-item-3 label, 
+.cat-item-4 label {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
+  font-size: 1.3rem;
+  color: #cfcccc;
+  margin-top: 1rem;
 }
 
-.children{
-  margin: .5rem 0;
+.children {
+  margin: .5rem 0 .5rem .5rem;
 }
-
 .cat-item{
   padding-right: 0;
   width: 100%;
@@ -2201,22 +2242,93 @@ be set to display none.
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  margin-top: 0rem;
+  font-size: 1rem;
+  color: #fffcfc;
+  transition: .2s;
 }
 
 .children .cat-item label input{
   opacity: 1;
   cursor: pointer;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid #fffcfc;
+}
+.children .cat-item:hover label {
+  color: #f23535;
 }
 
+input[type="submit"] { 
+  width: 10rem;
+  border: none;
+  background: #fffcfc; 
+  transition: .2s;
+}
+input[type="submit"]:hover { 
+  background: #f23535;
+  color: #fffcfc;
+}
 /*-----------------------------------------------------------Home-----------------------------------------------------------*/
+
+* {
+  text-decoration: none;
+}
+
+body {
+  overflow-x: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.admin-bar {
+  margin-top: -32px;
+}
+
+
+@font-face {
+  src: url('../fonts/ZapfinoLinotypeOne.ttf');
+  font-family: 'Zapfino';
+}
+
+h1 {
+  font-family: 'Zapfino';
+  font-weight: bold;
+  word-spacing: -.5rem;
+  color: #5f0000;
+
+}
+
+@font-face {
+  src: url('../fonts/Kallos-itc-medium.ttf');
+  font-family: 'Kallos';
+}
+
+h2,h3,h4 {
+  font-family: 'Kallos';
+  color: #5f0000;
+}
+
+@font-face {
+  src: url('../fonts/Neuton-Regular.TTF');
+  font-family: 'Neuton';
+}
+
+p, label, input {
+  font-family: 'Neuton';
+  max-width: 60rem;
+  line-height: 1.5;
+  letter-spacing: 1px;
+}
+
 
 .arcHome{
 	display: flex;
 	flex-direction: row;
   background-color: #d5d5d5;
-  /*background-image: url("../images/text-bg.jpg");
-  background-position: fixed;
-  background-size: cover;*/
+  background: url('../images/text-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .title{
@@ -2224,10 +2336,17 @@ be set to display none.
   grid-template-areas:". arctitle ."
                       "swirl1 sbc swirl2";
   text-align: center;
+  margin: 2rem 0 2rem;
 }
 
-#arcTitle{grid-area: arctitle;}
+#arcTitle{
+  grid-area: arctitle;
+  font-size: 7rem;
+  margin: 0rem 0 1rem;
+}
 #sbc{grid-area: sbc;}
+
+
 
 #swirl1 .SwirlSvg #Artboard #Page-1 path, #swirl2 .SwirlSvg #Artboard #Page-1 path{
   fill: #9a0000;
@@ -2247,10 +2366,10 @@ be set to display none.
 }
 
 .icon-categories{
-	width: 87vw;
-	height: 90vh;
-  position: fixed;
-  margin-left: 13vw;
+	width: 100%;
+	height: 100%;
+  position: relative;
+  padding: 2rem;
 }
 
 .catico{
@@ -2258,16 +2377,30 @@ be set to display none.
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
+  width: 10rem;
+  height: 12rem;
+  transition: .3s;
 }
-
 a:link .catico p {
 	margin: 0px auto;
-	text-decoration: none;
+	/*text-decoration: none !important;*/
+  color: #200;
 }
 
-a:hover .catico p{
-	margin: 0px auto;
-	text-decoration: underline;
+a:hover .catico {
+  border: solid 2px #f23535; 
+  /*color: #f23535;*/
+  background: #f23535;
+  /*background: rgba(92,0,0,.3);*/
+}
+a:hover .catico p {
+  /*border-bottom: solid 3px #f23535; */
+  color: #fffcfc;
+}
+a:hover .catico img {
+  filter: brightness(0) invert(1);
+  /*mix-blend-mode: overlay;*/
 }
 
 .location-category{
@@ -2275,11 +2408,16 @@ a:hover .catico p{
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
+  margin-bottom: 2rem;
 }
 
+
 .location-category a .catico img, .content-category a .catico img{
-  width: 166px;
-  height: 166px;
+  width: 10rem;
+  height: 10rem;
+}
+.searchandfilter li {
+  padding-right: 0;
 }
 
 .content-category{
@@ -2328,7 +2466,7 @@ a:hover .catico p{
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 87vw;
+  /*width: 87vw;*/
 }
 
 .post-page .entrycontent{
@@ -2406,6 +2544,13 @@ a:hover .catico p{
   border: solid 3px #5f0000;
 }
 
+.article-header .entry-title {
+  color: #fffcfc;
+  font-weight: normal;
+}
+
+.acp_wrapper
+
 /*---------------------------------------------------------Search---------------------------------------------------------*/
 
 .searchpage{
@@ -2413,5 +2558,4 @@ a:hover .catico p{
   flex-flow: row wrap;
   justify-content: center;
   width: 100%;
-  margin-left: 30px;
 }

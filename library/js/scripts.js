@@ -117,4 +117,12 @@ jQuery(document).ready(function($) {
   loadGravatars();
 
 
+
 }); /* end of as page load scripts */
+
+$("#voyageNavA").hover(function(){
+    $("#voyageTitle").attr("src","icons/reddragon_red.png");
+    }, function(){
+    $("#voyageTitle").attr("src","icons/reddragon_white.png");
+});
+
