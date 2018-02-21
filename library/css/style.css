@@ -2163,6 +2163,64 @@ be set to display none.
 */
 
 
+/*---------------------------------------------------------General---------------------------------------------------------*/
+
+* {
+  text-decoration: none;
+  font-family: 'Neuton';
+}
+
+body {
+  overflow-x: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+  max-width: 100vw;
+}
+
+.admin-bar {
+  margin-top: -32px;
+}
+
+img {
+  max-width: 100%;
+}
+
+
+@font-face {
+  src: url('../fonts/ZapfinoLinotypeOne.ttf');
+  font-family: 'Zapfino';
+}
+
+h1 {
+  font-family: 'Zapfino';
+  font-weight: bold;
+  word-spacing: -.5rem;
+  color: #5f0000;
+
+}
+
+@font-face {
+  src: url('../fonts/Kallos-itc-medium.ttf');
+  font-family: 'Kallos';
+}
+
+h2,h3,h4 {
+  font-family: 'Kallos';
+  color: #5f0000;
+}
+
+@font-face {
+  src: url('../fonts/Neuton-Regular.TTF');
+  font-family: 'Neuton';
+}
+
+p {
+  max-width: 60rem;
+  line-height: 1.5;
+  letter-spacing: 1px;
+}
+
+
+
 /*---------------------------------------------------------Sidebar---------------------------------------------------------*/
 
 .sidebar{
@@ -2205,7 +2263,8 @@ be set to display none.
 #sidebar div ul:first-child {
   margin: 0;
 }
-.searchandfilter h4{
+
+.searchandfilter h4 {
   margin: 1rem 0;
   display: none;
 }
@@ -2271,56 +2330,6 @@ input[type="submit"]:hover {
 }
 /*-----------------------------------------------------------Home-----------------------------------------------------------*/
 
-* {
-  text-decoration: none;
-}
-
-body {
-  overflow-x: hidden;
-    -webkit-font-smoothing: subpixel-antialiased;
-}
-
-.admin-bar {
-  margin-top: -32px;
-}
-
-
-@font-face {
-  src: url('../fonts/ZapfinoLinotypeOne.ttf');
-  font-family: 'Zapfino';
-}
-
-h1 {
-  font-family: 'Zapfino';
-  font-weight: bold;
-  word-spacing: -.5rem;
-  color: #5f0000;
-
-}
-
-@font-face {
-  src: url('../fonts/Kallos-itc-medium.ttf');
-  font-family: 'Kallos';
-}
-
-h2,h3,h4 {
-  font-family: 'Kallos';
-  color: #5f0000;
-}
-
-@font-face {
-  src: url('../fonts/Neuton-Regular.TTF');
-  font-family: 'Neuton';
-}
-
-p, label, input {
-  font-family: 'Neuton';
-  max-width: 60rem;
-  line-height: 1.5;
-  letter-spacing: 1px;
-}
-
-
 .arcHome{
 	display: flex;
 	flex-direction: row;
@@ -2332,19 +2341,19 @@ p, label, input {
 }
 
 .title{
-	display: grid;
+/*	display: grid;
   grid-template-areas:". arctitle ."
                       "swirl1 sbc swirl2";
-  text-align: center;
+*/  text-align: center;
   margin: 2rem 0 2rem;
 }
 
 #arcTitle{
-  grid-area: arctitle;
+  /*grid-area: arctitle;*/
   font-size: 7rem;
   margin: 0rem 0 1rem;
 }
-#sbc{grid-area: sbc;}
+/*#sbc{grid-area: sbc;}*/
 
 
 
@@ -2354,15 +2363,15 @@ p, label, input {
 
 #swirl1{
   margin-top: 2rem;
-  justify-self: end;
+  /*justify-self: end;*/
   transform: scale(-1,1);
-  grid-area: swirl1;
+  /*grid-area: swirl1;*/
 }
 
 #swirl2{
   margin-top: 2rem;
-  justify-self: start;
-  grid-area: swirl2;
+  /*justify-self: start;*/
+  /*grid-area: swirl2;*/
 }
 
 .icon-categories{
@@ -2389,9 +2398,9 @@ a:link .catico p {
 }
 
 a:hover .catico {
-  border: solid 2px #f23535; 
-  /*color: #f23535;*/
-  background: #f23535;
+  border: solid 2px #9a0000; 
+  /*color: #9a0000;*/
+  background: #9a0000;
   /*background: rgba(92,0,0,.3);*/
 }
 a:hover .catico p {
@@ -2429,6 +2438,7 @@ a:hover .catico img {
 
 .post-page .post{
   width: 100%;
+  position: relative;
 }
 
 /*---------------------------------------------------------Archive---------------------------------------------------------*/
@@ -2466,7 +2476,7 @@ a:hover .catico img {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  /*width: 87vw;*/
+  width: 100%;
 }
 
 .post-page .entrycontent{
@@ -2559,3 +2569,28 @@ a:hover .catico img {
   justify-content: center;
   width: 100%;
 }
+
+.searchResultsContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.hentry {
+  /*width: 12rem !important;*/
+  /*height: 12rem !important;*/
+  background: #9a0000;
+  padding: 0;
+  margin: 1rem; 
+  box-sizing: border-box;
+}
+
+.article-footer {
+  display: none;
+}
+
+.hentry .entry-meta {
+  display: none;
+}
+
