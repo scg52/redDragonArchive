@@ -2529,19 +2529,6 @@ a:hover .catico img {
   width: 10rem;
   height: 10rem;
 }
-.searchandfilter li {
-  padding-right: 0;
-}
-
-.searchandfilter label input::before {
-  content: '';
-  width: 1rem;
-  height: 1rem;
-  background-color: red;
-}
-.searchandfilter label input {
-  display: none;
-}
 
 .content-category{
 	display: flex;
