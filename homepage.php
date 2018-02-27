@@ -94,7 +94,7 @@
                   <?php 
                     //if there is no thumbnail picture then show a description of the article
                     if ( has_post_thumbnail() ) {
-                      the_post_thumbnail(array(300, 212));
+                      the_post_thumbnail(array(300, 300));
                     } else{
                       the_excerpt();
                     } 

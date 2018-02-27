@@ -2316,10 +2316,16 @@ p {
   justify-content: space-between;
   align-items: center;
   transition: .2s;
+  color: #fffcfc;
 }
 .category-select:hover {
   color: #f23535;
 }
+
+.category-select a {
+  color: #fffcfc;
+}
+
 
 .category-select .checkmark{
   width: .7rem;
@@ -2790,6 +2796,69 @@ a:hover .catico img {
 
 #filterResults h3 {
   color: #fffcfc;
+}
+
+.filter-label {
+  margin-left: 1rem;
+  color: #900000;
+  background: #fffcfc;
+  padding: .125rem .5rem;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.filter-label:hover { 
+  color: #fffcfc;
+  background: #f23535;
+}
+
+#searchform {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 2rem;
+  box-sizing: border-box;
+  transition: .2s;
+  border-radius: 2px;
+}
+
+
+
+#searchform input {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: .125rem;
+  box-sizing: border-box;
+  background: #baa;
+  transition: .2s;
+}
+
+#searchform:hover input {
+  border-color: #f23535;
+  background: #fffcfc;
+  color: #211;
+}
+
+#searchform button {
+  width: 2rem;
+  height: 100%;
+  margin: 0;
+  padding: .125rem;
+  transition: .2s;
+}
+
+#searchform:hover button {
+  background: #f23535;
+  border-color: #f23535;
+}
+
+#searchform button svg {
+  transition: .2s;
+  fill: #900000;
+}
+#searchform:hover button svg {
+  fill: #fffcfc;
 }
 
 
