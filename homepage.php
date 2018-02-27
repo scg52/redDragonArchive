@@ -58,7 +58,7 @@
               <div class="arDiv">
                 <h1 class="archiveBanner">Archive Home</h1>
                 <div id="filterResults" class="slideHide">
-                  <h3>Filter:</h3>
+                  <h3>Filters:</h3>
                 </div>
                 <div id="archiveBG" class="imgBG"></div>
 
@@ -85,7 +85,14 @@
 
                 <section class="entry-content cf">
 
-                  <?php the_post_thumbnail(array(300, 212)); ?>
+                  <?php 
+                    //if there is no thumbnail picture then show a description of the article
+                    if ( has_post_thumbnail() ) {
+                      the_post_thumbnail(array(300, 212));
+                    } else{
+                      the_excerpt();
+                    } 
+                  ?>
 
                 </section>
                 </a>

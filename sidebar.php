@@ -121,12 +121,30 @@
                             switchlist[i].classList.add('slideHide');
           						      switchlist[i].classList.add('hidden');
           						    }
+                          filterResultsEl.innerHTML = '<h3>Filters:</h3>';
                         }
 
+                        var holdingID;
+                        var holdingContent;
                         //search all the categories for ones with the class of checked
                         for (var i = 0; i < checkedCats.length; i++) {
+                          
                         	for (var j = 0; j < catEl.length; j++) {
                         		if (checkedCats[i] == catEl[j]) {
+                              holdingID = checkedCats[i].id;
+                              holdingID = holdingID.replace('select', 'label');
+                              holdingContent = holdingID.replace(/-/g, ' ');
+                              holdingContent = holdingContent.replace('label', '');
+                              filterResultsEl.innerHTML += '<div id="' + holdingID + '"class="filter-label">' + holdingContent + ' X</div>';
+                              document.getElementById(holdingID).addEventListener("click", function(){
+
+                                      var getNewID = this.id;
+                                      getNewID = getNewID.replace('label', 'select');
+                                      var catEl = document.getElementById(getNewID);
+                                      catEl.classList.remove('checked');
+                                      showResults();
+
+                              });
                         			// if the box has div checked then remove class slideHide from all posts
                         			getID = checkedCats[i].id;
 						            getID = getID.replace('select', 'category');
