@@ -45,7 +45,10 @@
 									    	 
 									    	<div id="transcription-content"> <?php
 									    	echo get_post_meta($post->ID, 'Transcription1', true);
-									    	?> </div>  <!-- transcription-content --> <?php
+									    	?> </div>  <!-- transcription-content --> 
+
+
+									    	<?php
 
 									    }
 									    else{

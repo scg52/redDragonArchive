@@ -2610,6 +2610,13 @@ a:hover .catico img {
   max-width: 85%;
 }
 
+.post-page h1 {
+  font-size: 6rem;
+  height: 6rem;
+  box-sizing: border-box;
+}
+
+
 .post-page .entrycontent{
   padding-left: 0px;
   padding-right: 0px;
