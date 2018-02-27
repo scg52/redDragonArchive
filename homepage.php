@@ -1,6 +1,6 @@
 <?php
 /*
- Template Name: Homepageposts Template
+ Template Name: Homepage Template
 */
 ?>
 <!--
@@ -82,8 +82,6 @@
                 <figure class="entry-content cf">
 
                   <?php the_post_thumbnail(array(300, 212)); ?>
-
-                  <figcaption></figcaption>
 
                 </figure>
 
