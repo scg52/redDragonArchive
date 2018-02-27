@@ -1997,12 +1997,16 @@ you can add resource intensive styles.
     */ }
 
   /* end .footer-links */ }
+
+
+  
 /*********************
 DESKTOP
 This is the average viewing window. So Desktops, Laptops, and
 in general anyone not viewing on a mobile device. Here's where
 you can add resource intensive styles.
 *********************/
+
 @media only screen and (min-width: 1030px) {
   /******************************************************************
   Site Name:
@@ -2281,38 +2285,17 @@ p {
   opacity: 0;
 }
 
-#sidebar h3 {
-  font-size: 1.3rem;
-  color: #cfcccc;
-  margin: 2rem 0 1rem;
-}
-
-.category-select {
-  padding-left: .5rem;
-  cursor: pointer;
+.cat-item-2 label, 
+.cat-item-3 label, 
+.cat-item-4 label {
   display: flex;
-  flex-flow: row nowrap;
+  flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
-  transition: .2s;
+  font-size: 1.3rem;
+  color: #cfcccc;
+  margin-top: 1rem;
 }
-.category-select:hover {
-  color: #f23535;
-}
-
-.category-select .checkmark{
-  width: .7rem;
-  height: .7rem;
-  border-radius: 50%;
-  background: transparent;
-  border: 2px solid #fffcfc;
-  transition: .2s;
-}
-
-.category-select:hover .checkmark {
-  border-color: #f23535;
-}
-
 
 .children {
   margin: .5rem 0 .5rem .5rem;
@@ -2339,7 +2322,7 @@ p {
   cursor: pointer;
   border-radius: 50%;
   background-color: transparent;
-  border: 3px solid #fffcfc;
+  border: 2px solid #fffcfc;
 }
 .children .cat-item:hover label {
   color: #f23535;
@@ -2377,54 +2360,10 @@ input[type="submit"]:hover {
 
 /*-----------------------------------------------------------Home-----------------------------------------------------------*/
 
-
-.imgBG {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -5;
-  background-size: cover; 
-  background-repeat: no-repeat;
-  background-position: center;
-  transition: opacity 1s;
-  transition: filter 1s;
-  pointer-events: none;
-  /*opacity: 0;*/
-  transition: opacity 1s;
-}
-
-#archiveHomeBG {
-  background: url('../images/isledelobos-2.png');
-  background-size: cover; 
-  opacity: 1;
-  transition: all .5s;
-}
-
-.splash-area {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.textBox {
-  border: solid #b11 3px;
-  box-shadow: 0px 0 10px rgba(100,80,80,.5);
-  background: rgba(250, 245, 245,.9);
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  padding: 1rem;
-  color: #211;
-  max-width: 33rem;
-}
-
 .arcHome{
 	display: flex;
 	flex-direction: row;
-  background-color: transparent;
+  background-color: #d5d5d5;
   background: url('../images/text-bg.jpg');
   background-size: cover;
   background-position: center;
@@ -2449,7 +2388,7 @@ input[type="submit"]:hover {
 
 
 #swirl1 .SwirlSvg #Artboard #Page-1 path, #swirl2 .SwirlSvg #Artboard #Page-1 path{
-  fill: #b11;
+  fill: #9a0000;
 }
 
 #swirl1{
@@ -2489,9 +2428,9 @@ a:link .catico p {
 }
 
 a:hover .catico {
-  border: solid 3px #b11; 
-  /*color: #b11;*/
-  background: #b11;
+  border: solid 2px #9a0000; 
+  /*color: #9a0000;*/
+  background: #9a0000;
   /*background: rgba(92,0,0,.3);*/
 }
 a:hover .catico p {
@@ -2520,16 +2459,6 @@ a:hover .catico img {
   padding-right: 0;
 }
 
-.searchandfilter label input::before {
-  content: '';
-  width: 1rem;
-  height: 1rem;
-  background-color: red;
-}
-.searchandfilter label input {
-  display: none;
-}
-
 .content-category{
 	display: flex;
 	flex-direction: row;
@@ -2548,8 +2477,8 @@ a:hover .catico img {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  width: 100%;
-  height: auto;
+  width: 87vw;
+  height: 90vh;
 }
 
 .arDiv .post, .searchpage .post, .type-page{
@@ -2559,7 +2488,7 @@ a:hover .catico img {
 }
 
 .entry-header{
-  background-color: #b11;
+  background-color: #9a0000;
 }
 
 .entry-header .entry-title a{
@@ -2594,21 +2523,22 @@ a:hover .catico img {
   height: 50px !important;
 }
 
-.manuscript {
-  display: grid;
-  grid-template-rows: 3rem 2fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-areas:"picture picture transcriptionButton translationButton"
-                      "picture picture content content";
+.manuscript{
+  /*display: grid;*/
+  /*grid-template-rows: 3rem 2fr;*/
+  /*grid-template-columns: 1fr 1fr 1fr 1fr;*/
+  /*grid-template-areas:"picture picture transcriptionButton translationButton"*/
+                      /*"picture picture content content";*/
   border: solid 3px #5f0000;
   background-color: #5f0000;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-end;
+
 }
 
 #visible{
-  grid-area: content;
+  /*grid-area: content;*/
   padding: 1rem;
   background-color: white;
 }
@@ -2628,21 +2558,21 @@ a:hover .catico img {
   background-color: #5B0F0F;
   font-size: 1.25rem;
   padding: 5px;
-  grid-area: transcriptionButton;
+  /*grid-area: transcriptionButton;*/
 }
 
 #translation-button{
   cursor: pointer;
   text-align: center;
   color: white;
-  background-color: #b11;
+  background-color: #9A0000;
   font-size: 1.25rem;
   padding: 5px;
-  grid-area: translationButton;
+  /*grid-area: translationButton;*/
 }
 
 .post-picture{
-  grid-area: picture;
+  /*grid-area: picture;*/
   max-width: 30rem;
   height: 100%;
 }
@@ -2653,38 +2583,19 @@ a:hover .catico img {
 }
 
 .buttons{
-  grid-area: pageButtons;
+  /*grid-area: pageButtons;*/
 }
 
-body:not(.single-post) .entry-content {
-  position: absolute;
-  z-index: 0;
-  /*border: solid 3px #5f0000;*/
-  width: 12rem;
-  height: 12rem;
-  background: black;
-  margin: 0;
+.entry-content img{
+  border: solid 3px #5f0000;
 }
 
-body:not(.single-post) .article-header .entry-title {
+.article-header .entry-title {
   color: #fffcfc;
   font-weight: normal;
-  position: absolute;
-  z-index: 1;
-  padding: 1rem;
-  text-align: center;
-  background: #b11;
-  width: 12rem;
 }
 
-body:not(.single-post)  .hentry header {
-    padding: 0rem;
-  }
-
-
-
-
-
+.acp_wrapper {}
 
 /*---------------------------------------------------------Search---------------------------------------------------------*/
 
@@ -2698,8 +2609,8 @@ body:not(.single-post)  .hentry header {
 .searchResultsContainer {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 body:not(.single-post) article a {
@@ -2709,18 +2620,15 @@ body:not(.single-post) article a {
 body:not(.single-post) article  {
   width: 12rem !important;
   height: 12rem !important;
-  background: #b11;
+  background: #9a0000;
   padding: 0;
   margin: 1rem; 
   box-sizing: border-box;
-  box-shadow: 0 0 5px rgba(0,0,0,.3);
-  border-radius: 3px;
 }
-
 body:not(.single-post) article .entry-header h3 {
-  font-family: 'Kallos';
+  font-family: 'Zapfino';
   text-align: center;
-  font-size: 1.5rem;
+
 }
 .article-footer {
   display: none;
@@ -2762,8 +2670,6 @@ body:not(.single-post) article .entry-header h3 {
   transition: .5s all 0s;
   z-index: 100;
 }
-
-
 
 #voyageNav.redTheme {
   transition: .5s all 0s;
@@ -2843,7 +2749,6 @@ body:not(.single-post) article .entry-header h3 {
 
 
 
-}
 
 
 
@@ -2853,53 +2758,5 @@ body:not(.single-post) article .entry-header h3 {
 
 
 
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ LARGER */
-
-@media screen and (min-width: 1700px) {
-  html {
-    font-size: 150% !important;
-  }
-/* HEADER */
-/* MAIN */
-/* SECTION */
-/* FOOTER */
-/* MISC */
 
 }
-
-@media screen and (min-width: 2500px) {
-  html {
-    font-size: 200% !important;
-  }
-/* HEADER */
-/* MAIN */
-/* SECTION */
-/* FOOTER */
-/* MISC */
-
-}
-
-@media screen and (min-width: 3500px) {
-  html {
-    font-size: 250% !important;
-  }
-/* HEADER */
-/* MAIN */
-/* SECTION */
-/* FOOTER */
-/* MISC */
-
-}
-
-@media screen and (min-width: 5000px) {
-  html {
-    font-size: 300% !important;
-  }
-/* HEADER */
-/* MAIN */
-/* SECTION */
-/* FOOTER */
-/* MISC */
-
-}
-

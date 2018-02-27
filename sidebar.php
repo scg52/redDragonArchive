@@ -1,23 +1,155 @@
-				<div id="sidebar" class="sidebar" role="complementary">
 
-					<?php if ( is_active_sidebar( 'sidebar1' ) ) : ?>
-                         
-                        <a id="logo" href="http://www.benrodia.com/red-dragon/beta-v1"><img src="<?php echo get_template_directory_uri();?>/library/images/reddragon_white.png"></a>
-						<?php dynamic_sidebar( 'sidebar1' );?>
-						<?php echo do_shortcode('[searchandfilter headings="Filter" types="checkbox" fields="category" order_dir="DESC" hierarchical="1" hide_empty="1" submit_label="Filter" operators="OR"]'); ?>
 
-					<?php else : ?>
 
-						<?php
-							/*
-							 * This content shows up if there are no widgets defined in the backend.
-							*/
-						?>
+<div id="sidebar" class="sidebar" role="complementary">
 
-						<div class="no-widgets">
-							<p><?php _e( 'This is a widget ready area. Add some and they will appear here.', 'bonestheme' );  ?></p>
-						</div>
+	<?php if ( is_active_sidebar( 'sidebar1' ) ) : ?>
+         
+        <a id="logo" href="http://www.benrodia.com/red-dragon/beta-v1/#toVoyage">
+        	<img src="<?php echo get_template_directory_uri();?>/library/images/reddragon_white.png">
+        </a>
+		<?php dynamic_sidebar( 'sidebar1' );?>
+		<ul>
+			<li>
+				<h3>Author</h3>
+				<ul>
+				  <?php
+                  foreach (get_categories('hide_empty=1&orderby=name&order=DESC&parent=2') as $category){
+                    echo "<li id=\"select-" . $category->slug . "\" class=\"category-select\">";
+                    echo $category->name;
+                    echo "<div class='checkmark'></div>";
+                    echo "</li>";
+                  } ?>
+                </ul>
+			</li>
+			<li>
+				<h3>Location</h3>
+				<ul>
+				  <?php
+                  foreach (get_categories('hide_empty=1&orderby=name&parent=3') as $category){
+                    echo "<li id=\"select-" . $category->slug . "\" class=\"category-select\">";
+                    echo $category->name;
+                    echo "<div class='checkmark'></div>";
+                    echo "</li>";
 
-					<?php endif; ?>
+                  } ?>
+                </ul>
+			</li>
+			<li>
+				<h3>Media Type</h3>
+				<ul>
+				  <?php
+                  foreach (get_categories('hide_empty=1&orderby=name&order=ASC&parent=4') as $category){
+                    echo "<li id=\"select-" . $category->slug . "\" class=\"category-select\">";
+                    echo $category->name;
+                    echo "<div class='checkmark'></div>";
+                    echo "</li>";
+                  } ?>
+                </ul>
+			</li>
+		</ul>
 
-				</div>
+	<?php else : ?>
+
+		<?php
+			/*
+			 * This content shows up if there are no widgets defined in the backend.
+			*/
+		?>
+
+		<div class="no-widgets">
+			<p><?php _e( 'This is a widget ready area. Add some and they will appear here.', 'bonestheme' );  ?></p>
+		</div>
+
+	<?php endif; ?>
+
+</div>
+
+
+
+
+				<script type="text/javascript">
+					var catEl = document.getElementsByClassName('category-select');
+
+					for (var i = 0; i < catEl.length; i++) {
+						catEl[i].addEventListener("click", function(){
+                          
+                          if (hasClass(this, 'checked')) {
+                          	this.classList.remove('checked');
+                          } else {
+                          	this.classList.add('checked');
+                          }
+
+                          showResults();
+                          
+					    });
+					}
+
+					function showResults(){
+						var catEl = document.getElementsByClassName('category-select');
+                        var checkedCats = document.getElementsByClassName('checked');
+                        var splashEl = document.getElementById('splash');
+                        var getID;
+                        var switchlist;
+
+                        //if any category is selected hide splash page
+                        if (checkedCats.length > 0) {
+                          splashEl.classList.add('hidden');
+                        }else {
+                          splashEl.classList.remove('hidden');
+                        }
+
+                        //hide all posts then add them back in if they are checked
+                        switchlist = document.getElementsByClassName('post');
+                        console.log("switchlist add hidden: " + switchlist);
+                        for (var i = 0; i < switchlist.length; i++) {
+                        	if(!hasClass(switchlist[i], 'hidden')){
+						      switchlist[i].classList.add('hidden');
+						    }
+                        }
+
+                        //search all the categories for ones with the class of checked
+                        for (var i = 0; i < checkedCats.length; i++) {
+                        	for (var j = 0; j < catEl.length; j++) {
+                        		if (checkedCats[i] == catEl[j]) {
+                        			// if the box has div checked then remove class hidden from all posts
+                        			getID = checkedCats[i].id;
+						            getID = getID.replace('select', 'category');
+						            switchlist = document.getElementsByClassName(getID);
+
+						            for (var i = 0; i < switchlist.length; i++) {
+						              //don't remove a class from an object that has already had it removed
+						              if(hasClass(switchlist[i], 'hidden')){
+						              	switchlist[i].classList.remove('hidden');
+						              }
+                        		    }/*for*/
+                        	    }/*if*/
+                            }/*for*/
+                        }/*for*/
+					} /*function*/
+
+					function hasClass(element, cls) {
+                        return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+                    }
+				</script>
+
+				<style>
+					
+.hidden{
+ display: none;
+}
+
+.checked{
+ font-weight: bold;
+}
+
+.checked:hover .checkmark {
+ background: #f23535;
+ border-color: #f23535;
+}
+
+.checked .checkmark{
+ background: #fffcfc;
+}
+
+				</style>
