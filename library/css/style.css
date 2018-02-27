@@ -2234,10 +2234,10 @@ p {
   -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
   -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
   box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
-  position: sticky;
-  top: -10px;
+  position: relative;
   color: #FAF0F0;
   background-color: #900000;
+  box-sizing: border-box;
 }
 
 #Logo{
@@ -2256,6 +2256,20 @@ p {
   width: 100%;
   margin-bottom: 1rem;
 }
+
+#archiveLink {
+  height: 3rem;
+  width: 100%;
+}
+
+#archiveLink h1 {
+  font-size: 4rem;
+  margin: 0;
+  color: #fffcfc;
+  font-weight: normal;
+  text-align: left;
+}
+
 
 #search-2{
   margin: 1rem 0px;
@@ -2283,7 +2297,7 @@ p {
 
 #sidebar h3 {
   font-size: 1.3rem;
-  color: #cfcccc;
+  color: #baa;
   margin: 2rem 0 1rem;
 }
 
@@ -2395,11 +2409,19 @@ input[type="submit"]:hover {
   transition: opacity 1s;
 }
 
-#archiveHomeBG {
+#splashBG {
   background: url('../images/isledelobos-2.png');
+  background-size: cover; 
+  filter: saturate(0);
+  opacity: 1;
+  /*transition: all .5s;*/
+}
+#archiveBG {
+  background: url('../images/text-bg.jpg');
   background-size: cover; 
   opacity: 1;
   transition: all .5s;
+  z-index: -10;
 }
 
 #splashBanner {
@@ -2416,6 +2438,10 @@ input[type="submit"]:hover {
   width: 100%;
   height: 6rem;
   box-sizing: border-box;
+  text-shadow: 0px 0 10px rgba(100,80,80,.5);
+  margin: 4rem 0 4.5rem;
+  word-spacing: -.5rem;
+
 }
 
 #splash p {
@@ -2430,6 +2456,7 @@ input[type="submit"]:hover {
   flex-flow: column;
   align-items: center;
   padding: 1rem;
+  margin: 2rem; 
   color: #211;
   max-width: 33rem;
 }
@@ -2438,7 +2465,7 @@ input[type="submit"]:hover {
 	display: flex;
 	flex-direction: row;
   background-color: transparent;
-  background: url('../images/text-bg.jpg');
+  background: transparent;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -2546,9 +2573,9 @@ a:hover .catico img {
 
 .arDiv{
   display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: flex-start;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
   height: auto;
 }
@@ -2560,19 +2587,36 @@ a:hover .catico img {
 }
 
 .entry-header{
-  background-color: #900000;
+  background-color: #fffcfc;
+
 }
 
 .entry-header .entry-title a{
-  color: white;
+  color: #211;
   text-align: center;
 }
 
 .entry-header:hover .entry-title a{
-  color: #ffaaaa;
+  color: #f23535;
 }
 
-/*----------------------------------------------------------Post----------------------------------------------------------*/
+/*---------------------------------------------------------- Post ----------------------------------------------------------*/
+
+
+#postArea {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  /*border-top: solid 2px #900000; */
+  transition: opacity 1s;
+  padding: 1rem;
+}
+
+#postArea article {
+  transition: 1s;
+}
 
 .post-page{
   display: flex;
@@ -2601,11 +2645,8 @@ a:hover .catico img {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-areas:"picture picture transcriptionButton translationButton"
                       "picture picture content content";
-  border: solid 3px #900000;
+  border: solid 2px #900000;
   background-color: #900000;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-end;
 }
 
 #visible{
@@ -2657,17 +2698,17 @@ a:hover .catico img {
   grid-area: pageButtons;
 }
 
-body:not(.single-post) .entry-content {
+#postArea .entry-content {
   position: absolute;
   z-index: 0;
-  /*border: solid 3px #900000;*/
+  border: solid 2px #900000;
   width: 12rem;
   height: 12rem;
   background: black;
   margin: 0;
 }
 
-body:not(.single-post) .article-header .entry-title {
+#postArea .article-header .entry-title {
   color: #fffcfc;
   font-weight: normal;
   position: absolute;
@@ -2678,7 +2719,7 @@ body:not(.single-post) .article-header .entry-title {
   width: 12rem;
 }
 
-body:not(.single-post)  .hentry header {
+#postArea  .hentry header {
     padding: 0rem;
   }
 
@@ -2703,11 +2744,11 @@ body:not(.single-post)  .hentry header {
   align-items: center;
 }
 
-body:not(.single-post) article a {
+#postArea article a {
   width: 12rem;
   height: 12rem;
 }
-body:not(.single-post) article  {
+#postArea article  {
   width: 12rem !important;
   height: 12rem !important;
   background: #900000;
@@ -2718,7 +2759,7 @@ body:not(.single-post) article  {
   border-radius: 3px;
 }
 
-body:not(.single-post) article .entry-header h3 {
+#postArea article .entry-header h3 {
   font-family: 'Kallos';
   text-align: center;
   font-size: 1.5rem;
@@ -2731,7 +2772,27 @@ body:not(.single-post) article .entry-header h3 {
   display: none;
 }
 
-/*---------------------------------------------------------General---------------------------------------------------------*/
+
+#filterResults {
+  width: 100%;
+  background: #900000;
+  height: 2.5rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+  transition: 1s;
+}
+
+#filterResults h3 {
+  color: #fffcfc;
+}
+
+
+
+/*--------------------------------------------------------- Mobile ---------------------------------------------------------*/
 
 @media screen and (max-width: 500px) {
   

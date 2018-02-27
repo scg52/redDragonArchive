@@ -8,6 +8,9 @@
         <a id="logo" href="http://www.benrodia.com/red-dragon/beta-v1/#toVoyage">
         	<img src="<?php echo get_template_directory_uri();?>/library/images/reddragon_white.png">
         </a>
+        <a id="archiveLink"  href="http://www.benrodia.com/red-dragon/archive">
+          <h1>Archive</h1>
+        </a>
 		<?php dynamic_sidebar( 'sidebar1' );?>
 		<ul>
 			<li>
@@ -89,37 +92,50 @@
 						var catEl = document.getElementsByClassName('category-select');
                         var checkedCats = document.getElementsByClassName('checked');
                         var splashEl = document.getElementById('splash');
+                        var splashBGEl = document.getElementById('splashBG');
+                        var postAreaEl = document.getElementById('postArea');
+                        var filterResultsEl = document.getElementById('filterResults');
                         var getID;
                         var switchlist;
 
                         //if any category is selected hide splash page
                         if (checkedCats.length > 0) {
                           splashEl.classList.add('hidden');
+                          splashBGEl.classList.add('slideHide');
+
+                          postArea.classList.remove('hidden');
+                          filterResultsEl.classList.remove('slideHide');
                         }else {
                           splashEl.classList.remove('hidden');
+                          splashBGEl.classList.remove('slideHide');
+
+                          postArea.classList.add('hidden');
+                          filterResultsEl.classList.add('slideHide');
                         }
 
                         //hide all posts then add them back in if they are checked
                         switchlist = document.getElementsByClassName('post');
-                        console.log("switchlist add hidden: " + switchlist);
+                        console.log("switchlist add slideHide: " + switchlist);
                         for (var i = 0; i < switchlist.length; i++) {
-                        	if(!hasClass(switchlist[i], 'hidden')){
-						      switchlist[i].classList.add('hidden');
-						    }
+                        	if(!hasClass(switchlist[i], 'slideHide')){
+                            switchlist[i].classList.add('slideHide');
+          						      switchlist[i].classList.add('hidden');
+          						    }
                         }
 
                         //search all the categories for ones with the class of checked
                         for (var i = 0; i < checkedCats.length; i++) {
                         	for (var j = 0; j < catEl.length; j++) {
                         		if (checkedCats[i] == catEl[j]) {
-                        			// if the box has div checked then remove class hidden from all posts
+                        			// if the box has div checked then remove class slideHide from all posts
                         			getID = checkedCats[i].id;
 						            getID = getID.replace('select', 'category');
 						            switchlist = document.getElementsByClassName(getID);
 
 						            for (var i = 0; i < switchlist.length; i++) {
 						              //don't remove a class from an object that has already had it removed
-						              if(hasClass(switchlist[i], 'hidden')){
+						              if(hasClass(switchlist[i], 'slideHide')){
+                            switchlist[i].classList.remove('slideHide');
 						              	switchlist[i].classList.remove('hidden');
 						              }
                         		    }/*for*/
@@ -137,6 +153,12 @@
 					
 .hidden{
  display: none;
+}
+.slideHide{
+  opacity: 0 !important;
+  transition: 1s;
+  transform-origin: 50% 50%;
+  transform: translateX(10rem); 
 }
 
 .checked{

@@ -8,9 +8,17 @@
 
                         <?php get_sidebar(); ?>
 
-						<div class="searchpage">
-						<h1 class="archive-title"><span><?php _e( '', 'bonestheme' ); ?></span> <?php echo esc_attr(get_search_query()); ?></h1>
-						<div class="searchResultsContainer">
+						<div class="arDiv">
+						<h1 class="archiveBanner">Archive Search</h1>
+		                <div id="filterResults" class="">
+		                  <h3>Searching For:</h3>
+		                </div>
+
+                		<div id="archiveBG" class="imgBG"></div>
+
+                		<div id="postArea">
+						
+
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 						
 							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article">
@@ -47,7 +55,7 @@
 									</article>
 
 							<?php endif; ?>
-						</div> <!-- searchResultsContainer -->
+						</div> <!-- postArea -->
 						</div> <!-- searchpage -->
 
 						</main>

@@ -12,6 +12,7 @@
 							<article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article">
 
 								<header class="article-header">
+									<a href="http://www.benrodia.com/red-dragon/archive" class="returnToHome"><h3>Return to Archive Home</h3></a>
 
 									<h1 class="single-title custom-post-type-title"><?php the_title(); ?></h1>
 

@@ -55,39 +55,43 @@
 
                           <?php get_sidebar(); ?>
 
-                          <div class="arDiv">
-                            <h1 class="archiveBanner">Archive</h1>
+              <div class="arDiv">
+                <h1 class="archiveBanner">Archive Home</h1>
+                <div id="filterResults" class="slideHide">
+                  <h3>Filter:</h3>
+                </div>
+                <div id="archiveBG" class="imgBG"></div>
 
-                            <div id="splash">
-                                <p class="textBox">Welcome to the Archive! This is your stop to dig deeper into the exploits of the Red Dragon crew and their most sordid ventures. To begin researching, simply select the categories you are interested in on the menu there, or enter a search term. Enjoy!</p>
-                                <div id="splashBG" class="imgBG"></div>
-                            </div>
-              
-              
-              <?php
-              $allposts = get_posts();
- 
-               if ( $allposts ) {
-                  foreach ( $allposts as $post ) :
-                      setup_postdata( $post );
-            ?>
-
-              <article id="post-<?php the_ID(); ?>" <?php post_class( 'hidden' ); ?> role="article" style="background-image: url("");">
-
-                <header class="entry-header article-header">
-
-                  <h3 class="h2 entry-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+                <div id="splash">
+                    <p class="textBox">Welcome to the Archive! This is your stop to dig deeper into the exploits of the Red Dragon crew and their most sordid ventures. To begin researching, simply select the categories you are interested in on the menu there, or enter a search term. Enjoy!</p>
+                </div>
+                <div id="splashBG" class="imgBG"></div>
                   
+                  
+                <div id="postArea" class="hidden">
+                  <?php
+                  $allposts = get_posts();
+     
+                   if ( $allposts ) {
+                      foreach ( $allposts as $post ) :
+                          setup_postdata( $post );
+                ?>
 
+              <article id="post-<?php the_ID(); ?>" <?php post_class( 'slideHide hidden cf' ); ?> role="article">
+                <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+                  <header class="entry-header article-header">
+                  <h3 class="h2 entry-title"><?php the_title(); ?></h3>
                 </header>
 
-                <figure class="entry-content cf">
+                <section class="entry-content cf">
 
                   <?php the_post_thumbnail(array(300, 212)); ?>
 
-                </figure>
+                </section>
+                </a>
 
               </article>
+
 
               <?php
                   endforeach; 
@@ -95,8 +99,8 @@
                 } //end if statement
               ?>
 
-              </div> <!-- arDiv -->
-
+              </div> 
+              </div><!-- arDiv -->
             </main>
 
         </div>
