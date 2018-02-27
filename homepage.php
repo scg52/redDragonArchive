@@ -46,6 +46,11 @@
                                     ``--...____...--'' -->
 
 <?php get_header(); ?>
+<?php if (isset($_GET['category'])) {
+    $selectedCategory = $_GET['category'];
+  } else {
+    $selectedCategory = "";
+  }?>
 
       <div id="content">
 
@@ -53,17 +58,18 @@
 
             <main id="main" class="arcHome m-all cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
-                          <?php get_sidebar(); ?>
+                          <?php include 'sidebar-home.php'; ?>
 
               <div class="arDiv">
                 <h1 class="archiveBanner">Archive Home</h1>
                 <div id="filterResults" class="slideHide">
                   <h3>Filters:</h3>
+                  
                 </div>
                 <div id="archiveBG" class="imgBG"></div>
 
-                <div id="splash">
-                    <p class="textBox">Welcome to the Archive! This is your stop to dig deeper into the exploits of the Red Dragon crew and their most sordid ventures. To begin researching, simply select the categories you are interested in on the menu there, or enter a search term. Enjoy!</p>
+                <div id="splash" class="splash">
+                    <p class="textBox">Welcome to the Archive! This is your stop to dig deeper into the exploits of the Red Dragon crew and their most sordid ventures. To begin exploring, simply select the categories you are interested in on the menu there, or enter a search term. Enjoy!</p>
                 </div>
                 <div id="splashBG" class="imgBG"></div>
                   
@@ -105,6 +111,10 @@
                   wp_reset_postdata();
                 } //end if statement
               ?>
+
+              <script type="text/javascript">
+                showResults();
+              </script>
 
               </div> 
               </div><!-- arDiv -->

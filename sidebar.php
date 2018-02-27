@@ -16,11 +16,13 @@
 			<li>
 				<h3>Author</h3>
 				<ul>
+          </a>
 				  <?php
                   foreach (get_categories('hide_empty=1&orderby=name&order=DESC&parent=2') as $category){
                     echo "<li id=\"select-" . $category->slug . "\" class=\"category-select\">";
+                    echo "<a href=\"" . get_home_url() . "?category=" . $category->slug . "\">";
                     echo $category->name;
-                    echo "<div class='checkmark'></div>";
+                    echo "<div class='checkmark'></a></div>";
                     echo "</li>";
                   } ?>
                 </ul>
@@ -31,8 +33,9 @@
 				  <?php
                   foreach (get_categories('hide_empty=1&orderby=name&parent=3') as $category){
                     echo "<li id=\"select-" . $category->slug . "\" class=\"category-select\">";
+                    echo "<a href=\"" . get_home_url() . "?category=" . $category->slug . "\">";
                     echo $category->name;
-                    echo "<div class='checkmark'></div>";
+                    echo "<div class='checkmark'></a></div>";
                     echo "</li>";
 
                   } ?>
@@ -44,8 +47,9 @@
 				  <?php
                   foreach (get_categories('hide_empty=1&orderby=name&order=ASC&parent=4') as $category){
                     echo "<li id=\"select-" . $category->slug . "\" class=\"category-select\">";
+                    echo "<a href=\"" . get_home_url() . "?category=" . $category->slug . "\">";
                     echo $category->name;
-                    echo "<div class='checkmark'></div>";
+                    echo "<div class='checkmark'></a></div>";
                     echo "</li>";
                   } ?>
                 </ul>
@@ -67,105 +71,6 @@
 	<?php endif; ?>
 
 </div>
-
-
-
-
-				<script type="text/javascript">
-					var catEl = document.getElementsByClassName('category-select');
-
-					for (var i = 0; i < catEl.length; i++) {
-						catEl[i].addEventListener("click", function(){
-                          
-                          if (hasClass(this, 'checked')) {
-                          	this.classList.remove('checked');
-                          } else {
-                          	this.classList.add('checked');
-                          }
-
-                          showResults();
-                          
-					    });
-					}
-
-					function showResults(){
-						var catEl = document.getElementsByClassName('category-select');
-                        var checkedCats = document.getElementsByClassName('checked');
-                        var splashEl = document.getElementById('splash');
-                        var splashBGEl = document.getElementById('splashBG');
-                        var postAreaEl = document.getElementById('postArea');
-                        var filterResultsEl = document.getElementById('filterResults');
-                        var getID;
-                        var switchlist;
-
-                        //if any category is selected hide splash page
-                        if (checkedCats.length > 0) {
-                          splashEl.classList.add('hidden');
-                          splashBGEl.classList.add('slideHide');
-
-                          postArea.classList.remove('hidden');
-                          filterResultsEl.classList.remove('slideHide');
-                        }else {
-                          splashEl.classList.remove('hidden');
-                          splashBGEl.classList.remove('slideHide');
-
-                          postArea.classList.add('hidden');
-                          filterResultsEl.classList.add('slideHide');
-                        }
-
-                        //hide all posts then add them back in if they are checked
-                        switchlist = document.getElementsByClassName('post');
-                        console.log("switchlist add slideHide: " + switchlist);
-                        for (var i = 0; i < switchlist.length; i++) {
-                        	if(!hasClass(switchlist[i], 'slideHide')){
-                            switchlist[i].classList.add('slideHide');
-          						      switchlist[i].classList.add('hidden');
-          						    }
-                          filterResultsEl.innerHTML = '<h3>Filters:</h3>';
-                        }
-
-                        var holdingID;
-                        var holdingContent;
-                        //search all the categories for ones with the class of checked
-                        for (var i = 0; i < checkedCats.length; i++) {
-                          
-                        	for (var j = 0; j < catEl.length; j++) {
-                        		if (checkedCats[i] == catEl[j]) {
-                              holdingID = checkedCats[i].id;
-                              holdingID = holdingID.replace('select', 'label');
-                              holdingContent = holdingID.replace(/-/g, ' ');
-                              holdingContent = holdingContent.replace('label', '');
-                              filterResultsEl.innerHTML += '<div id="' + holdingID + '"class="filter-label">' + holdingContent + ' X</div>';
-                              document.getElementById(holdingID).addEventListener("click", function(){
-
-                                      var getNewID = this.id;
-                                      getNewID = getNewID.replace('label', 'select');
-                                      var catEl = document.getElementById(getNewID);
-                                      catEl.classList.remove('checked');
-                                      showResults();
-
-                              });
-                        			// if the box has div checked then remove class slideHide from all posts
-                        			getID = checkedCats[i].id;
-						            getID = getID.replace('select', 'category');
-						            switchlist = document.getElementsByClassName(getID);
-
-						            for (var i = 0; i < switchlist.length; i++) {
-						              //don't remove a class from an object that has already had it removed
-						              if(hasClass(switchlist[i], 'slideHide')){
-                            switchlist[i].classList.remove('slideHide');
-						              	switchlist[i].classList.remove('hidden');
-						              }
-                        		    }/*for*/
-                        	    }/*if*/
-                            }/*for*/
-                        }/*for*/
-					} /*function*/
-
-					function hasClass(element, cls) {
-                        return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
-                    }
-				</script>
 
 				<style>
 					
