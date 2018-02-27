@@ -2254,20 +2254,27 @@ p {
 */
 #logo img{
   width: 100%;
-  margin-bottom: 1rem;
+  padding-bottom: .5rem;
+  margin-bottom: .5rem;
+  border-bottom: 2px solid #fffcfc;
 }
 
 #archiveLink {
   height: 3rem;
   width: 100%;
+  box-sizing: border-box;
 }
 
 #archiveLink h1 {
-  font-size: 4rem;
-  margin: 0;
+  font-size: 3rem;
+  margin: 0 1rem 0 0;
   color: #fffcfc;
   font-weight: normal;
-  text-align: left;
+  text-align: center;
+  transition: .2s;
+}
+#archiveLink:hover h1 {
+  color: #f23535;
 }
 
 
@@ -2368,25 +2375,6 @@ input[type="submit"] {
 input[type="submit"]:hover { 
   background: #f23535;
   color: #fffcfc;
-}
-
-#backToHome {
-  background: #fffcfc;
-  color: #200000;
-  /*font-family: 'Kallos';*/
-  width: 10rem !important;
-  /*margin-top: 1rem;*/
-  padding: .5rem;
-  transition: .2s;
-}
-
-#backToHome:hover {
-  background: #f23535;
-  color: #fffcfc;
-}
-
-.home #backToHome {
-  display: none;
 }
 
 /*-----------------------------------------------------------Home-----------------------------------------------------------*/
@@ -2619,10 +2607,7 @@ a:hover .catico img {
 }
 
 .post-page{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
+  max-width: 85%;
 }
 
 .post-page .entrycontent{
@@ -2630,8 +2615,18 @@ a:hover .catico img {
   padding-right: 0px;
 }
 
-.jcarousel{
-  width: 50%;
+.jcarousel {
+  width: 100%;
+  display: block;
+  position: relative;
+}
+
+.jcarousel ul {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 70%;
 }
 
 .jcarousel li{
