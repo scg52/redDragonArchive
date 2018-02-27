@@ -56,9 +56,11 @@
                           <?php get_sidebar(); ?>
 
                           <div class="arDiv">
+                            <h1 class="archiveBanner">Archive</h1>
 
                             <div id="splash">
-                              Splash Page
+                                <p class="textBox">Welcome to the Archive! This is your stop to dig deeper into the exploits of the Red Dragon crew and their most sordid ventures. To begin researching, simply select the categories you are interested in on the menu there, or enter a search term. Enjoy!</p>
+                                <div id="splashBG" class="imgBG"></div>
                             </div>
               
               

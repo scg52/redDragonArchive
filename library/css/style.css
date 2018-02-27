@@ -2195,7 +2195,7 @@ h1 {
   font-family: 'Zapfino';
   font-weight: bold;
   word-spacing: -.5rem;
-  color: #5f0000;
+  color: #900000;
 
 }
 
@@ -2206,7 +2206,7 @@ h1 {
 
 h2,h3,h4 {
   font-family: 'Kallos';
-  color: #5f0000;
+  color: #900000;
 }
 
 @font-face {
@@ -2237,7 +2237,7 @@ p {
   position: sticky;
   top: -10px;
   color: #FAF0F0;
-  background-color: #5f0000;
+  background-color: #900000;
 }
 
 #Logo{
@@ -2402,15 +2402,28 @@ input[type="submit"]:hover {
   transition: all .5s;
 }
 
-.splash-area {
+#splashBanner {
   display: flex;
   flex-flow: column;
   align-items: center;
   justify-content: center;
+  padding: 2rem;
+}
+
+.archiveBanner {
+  font-size: 8rem;
+  text-align: center;
+  width: 100%;
+  height: 6rem;
+  box-sizing: border-box;
+}
+
+#splash p {
+  font-size: 1.2rem;
 }
 
 .textBox {
-  border: solid #b11 3px;
+  border: solid #900000 2px;
   box-shadow: 0px 0 10px rgba(100,80,80,.5);
   background: rgba(250, 245, 245,.9);
   display: flex;
@@ -2449,7 +2462,7 @@ input[type="submit"]:hover {
 
 
 #swirl1 .SwirlSvg #Artboard #Page-1 path, #swirl2 .SwirlSvg #Artboard #Page-1 path{
-  fill: #b11;
+  fill: #900000;
 }
 
 #swirl1{
@@ -2489,9 +2502,9 @@ a:link .catico p {
 }
 
 a:hover .catico {
-  border: solid 3px #b11; 
-  /*color: #b11;*/
-  background: #b11;
+  border: solid 3px #900000; 
+  /*color: #900000;*/
+  background: #900000;
   /*background: rgba(92,0,0,.3);*/
 }
 a:hover .catico p {
@@ -2547,7 +2560,8 @@ a:hover .catico img {
 .arDiv{
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: flex-start;
   width: 100%;
   height: auto;
 }
@@ -2559,7 +2573,7 @@ a:hover .catico img {
 }
 
 .entry-header{
-  background-color: #b11;
+  background-color: #900000;
 }
 
 .entry-header .entry-title a{
@@ -2600,8 +2614,8 @@ a:hover .catico img {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-areas:"picture picture transcriptionButton translationButton"
                       "picture picture content content";
-  border: solid 3px #5f0000;
-  background-color: #5f0000;
+  border: solid 3px #900000;
+  background-color: #900000;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-end;
@@ -2635,7 +2649,7 @@ a:hover .catico img {
   cursor: pointer;
   text-align: center;
   color: white;
-  background-color: #b11;
+  background-color: #900000;
   font-size: 1.25rem;
   padding: 5px;
   grid-area: translationButton;
@@ -2659,7 +2673,7 @@ a:hover .catico img {
 body:not(.single-post) .entry-content {
   position: absolute;
   z-index: 0;
-  /*border: solid 3px #5f0000;*/
+  /*border: solid 3px #900000;*/
   width: 12rem;
   height: 12rem;
   background: black;
@@ -2673,7 +2687,7 @@ body:not(.single-post) .article-header .entry-title {
   z-index: 1;
   padding: 1rem;
   text-align: center;
-  background: #b11;
+  background: #900000;
   width: 12rem;
 }
 
@@ -2709,7 +2723,7 @@ body:not(.single-post) article a {
 body:not(.single-post) article  {
   width: 12rem !important;
   height: 12rem !important;
-  background: #b11;
+  background: #900000;
   padding: 0;
   margin: 1rem; 
   box-sizing: border-box;
