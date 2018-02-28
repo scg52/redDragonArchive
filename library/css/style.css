@@ -2712,18 +2712,20 @@ a:hover .catico img {
   border: solid 2px #900000;
   width: 12rem;
   height: 12rem;
-  background: black;
+  background: #fffcfc;
   margin: 0;
+  padding: 0;
+  transition: .2s;
 }
 
 #postArea .article-header .entry-title {
-  color: #fffcfc;
+  color: #211;
   font-weight: normal;
   position: absolute;
   z-index: 1;
   padding: 1rem;
   text-align: center;
-  background: #900000;
+  /*background: #900000;*/
   width: 12rem;
 }
 
@@ -2731,6 +2733,18 @@ a:hover .catico img {
     padding: 0rem;
   }
 
+#postArea article a:hover .entry-content {
+  background: #f23535;
+}
+
+#postArea article a:hover .entry-content img {
+  mix-blend-mode: multiply;
+  background: #f23535;
+}
+
+#postArea article a:hover .entry-title {
+  color: #fffcfc;
+}
 
 
 
