@@ -8,7 +8,7 @@
         <a id="logo" href="http://www.benrodia.com/red-dragon/beta-v3/#toVoyage">
         	<img src="<?php echo get_template_directory_uri();?>/library/images/reddragon_white.png">
         </a>
-        <a id="archiveLink"  href="http://www.benrodia.com/red-dragon/archive">
+        <a id="archiveLink"  href="http://www.scg52.com/Archive">
           <h1>Archive</h1>
         </a>
 		<?php dynamic_sidebar( 'sidebar1' );?>
