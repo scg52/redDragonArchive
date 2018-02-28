@@ -50,11 +50,7 @@
     $selectedCategory = $_GET['category'];
   } else {
     $selectedCategory = "";
-  }
-  if (isset($_GET['s'])) {
-    $selectedCategory = $_GET['s'];
-  } else {
-    $selectedCategory = "";?>
+  }?>
 
       <div id="content">
 
@@ -68,7 +64,6 @@
                 <h1 class="archiveBanner">Archive Home</h1>
                 <div id="filterResults" class="slideHide">
                   <h3>Filters:</h3>
-                  
                 </div>
                 <div id="archiveBG" class="imgBG"></div>
 
