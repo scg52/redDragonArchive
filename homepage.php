@@ -50,7 +50,11 @@
     $selectedCategory = $_GET['category'];
   } else {
     $selectedCategory = "";
-  }?>
+  }
+  if (isset($_GET['s'])) {
+    $selectedCategory = $_GET['s'];
+  } else {
+    $selectedCategory = "";?>
 
       <div id="content">
 
