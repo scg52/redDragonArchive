@@ -102,7 +102,7 @@
                                     	var visibleEl = document.getElementById('visible');
                                         visibleEl.innerHTML = transcriptCont.innerHTML;
 
-                                        transcriptEl.style.backgroundColor = "#5B0F0F";
+                                        transcriptEl.style.backgroundColor = "#f23535";
                                         
                                         //show transcript
                                         transcriptEl.addEventListener("click", function(){
@@ -110,9 +110,9 @@
                                     	  var visibleEl = document.getElementById('visible');
                                           visibleEl.innerHTML = transcriptCont.innerHTML;
 
-                                          this.style.backgroundColor = "#5B0F0F";
+                                          this.style.backgroundColor = "#f23535";
                                           var translationEl = document.getElementById('translation-button');
-                                          translationEl.style.backgroundColor = "#9a0000";
+                                          translationEl.style.backgroundColor = "#900000";
                                         });
 
                                         //show translation
@@ -121,9 +121,9 @@
                                     	  var visibleEl = document.getElementById('visible');
                                           visibleEl.innerHTML = translationCont.innerHTML;
 
-                                          this.style.backgroundColor = "#5B0F0F";
+                                          this.style.backgroundColor = "#f23535";
                                           var transcriptEl = document.getElementById('transcript-button');
-                                          transcriptEl.style.backgroundColor = "#9a0000";
+                                          transcriptEl.style.backgroundColor = "#900000";
                                         });
 
                                     </script>

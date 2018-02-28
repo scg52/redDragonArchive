@@ -2654,13 +2654,19 @@ a:hover .catico img {
   grid-template-areas:"picture picture transcriptionButton translationButton"
                       "picture picture content content";
   border: solid 2px #900000;
-  background-color: #900000;
+  background-color: #211;
 }
 
 #visible{
   grid-area: content;
   padding: 1rem;
-  background-color: white;
+  background: rgba(255,250,250,.9);
+  color: #221;
+  font: 'Neuton';
+  letter-spacing: 1px;
+  line-height: 1.5;
+
+
 }
 
 #transcription-content{
@@ -2716,6 +2722,7 @@ a:hover .catico img {
   margin: 0;
   padding: 0;
   transition: .2s;
+  overflow: hidden;
 }
 
 #postArea .article-header .entry-title {
