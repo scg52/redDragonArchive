@@ -110,7 +110,7 @@
 					}
 
 					function showResults(){
-						var catEl = document.getElementsByClassName('category-select');
+						            var catEl = document.getElementsByClassName('category-select');
                         var checkedCats = document.getElementsByClassName('checked');
                         var splashEl = document.getElementById('splash');
                         var splashBGEl = document.getElementById('splashBG');
@@ -167,20 +167,20 @@
 
                               });
                         			// if the box has div checked then remove class slideHide from all posts
-                        			getID = checkedCats[i].id;
-						            getID = getID.replace('select', 'category');
-						            switchlist = document.getElementsByClassName(getID);
+                        			getID = catEl[i].id;
+						                  getID = getID.replace('select', 'category');
+						                  switchlist = document.getElementsByClassName(getID);
 
-						            for (var i = 0; i < switchlist.length; i++) {
-						              //don't remove a class from an object that has already had it removed
-						              if(hasClass(switchlist[i], 'slideHide')){
-                            switchlist[i].classList.remove('slideHide');
-						              	switchlist[i].classList.remove('hidden');
-						              }
-                        		    }/*for*/
-                        	    }/*if*/
-                            }/*for*/
-                        }/*for*/
+						                  for (var i = 0; i < switchlist.length; i++) {
+						                    //don't remove a class from an object that has already had it removed
+						                    if(hasClass(switchlist[i], 'slideHide')){
+                                  switchlist[i].classList.remove('slideHide');
+						              	      switchlist[i].classList.remove('hidden');
+						                    }
+                        		  }/*for switchlist*/
+                        	  }/*if checkedCats = atEl*/
+                          }/*for catEl*/
+                        }/*for checkedCats*/
 					} /*function*/
 
 					function hasClass(element, cls) {
