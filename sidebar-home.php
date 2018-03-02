@@ -116,6 +116,7 @@
                         var splashBGEl = document.getElementById('splashBG');
                         var postAreaEl = document.getElementById('postArea');
                         var filterResultsEl = document.getElementById('filterResults');
+                        var homeOrFilterEl = document.getElementById('homeOrFilter');
                         var getID;
                         var switchlist;
 
@@ -123,12 +124,14 @@
                         if (checkedCats.length > 0) {
                           splashEl.classList.add('hidden');
                           splashBGEl.classList.add('slideHide');
+                          homeOrFilterEl.innerHTML('Filter');
 
                           postArea.classList.remove('hidden');
                           filterResultsEl.classList.remove('slideHide');
                         }else {
                           splashEl.classList.remove('hidden');
                           splashBGEl.classList.remove('slideHide');
+                          homeOrFilterEl.innerHTML('Home');
 
                           postArea.classList.add('hidden');
                           filterResultsEl.classList.add('slideHide');
