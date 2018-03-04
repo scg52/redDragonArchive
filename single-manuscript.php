@@ -73,24 +73,7 @@
 									?>
 									</div> <!-- manuscript -->
 
-									<div class="buttons">
-									<?php
-                                        //pagination buttons
-										the_content();
-									?>
-									</div> <!-- buttons -->
-
-                                    <?php
-										/*
-										 * Link Pages is used in case you have posts that are set to break into
-										 * multiple pages.
-										*/
-										wp_link_pages( array(
-											'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'bonestheme' ) . '</span>',
-											'after'       => '</div>',
-											'link_before' => '<span>',
-											'link_after'  => '</span>',
-										) );
+									<?php if ( function_exists( 'pgntn_display_pagination' ) ) pgntn_display_pagination( 'multipage' ); 
 									?>
 
 									<script type="text/javascript">
