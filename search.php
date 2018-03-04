@@ -12,7 +12,7 @@
 						<h1 class="archiveBanner">Archive Search</h1>
 		                <div id="filterResults" class="">
 		                  <h3>Searching For:</h3>
-		                  <div class="filter-label"><a href="<?php echo get_home_url(); ?>"><?php echo get_search_query() . ' X';?></a></div>
+		                  <div class="filter-label"><a href="<?php echo get_home_url(); ?>"><?php echo get_search_query() . ' <span>X</span>';?></a></div>
 		                </div>
 
                 		<div id="archiveBG" class="imgBG"></div>

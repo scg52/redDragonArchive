@@ -113,6 +113,10 @@
 
               <script type="text/javascript">
                 showResults();
+
+                if (window.width() <= 500) {
+                  document.getElementsByClassName('post').classList.remove('hidden');
+                }
               </script>
 
               </div> 

@@ -159,7 +159,7 @@
                               holdingID = holdingID.replace('select', 'label');
                               holdingContent = holdingID.replace(/-/g, ' ');
                               holdingContent = holdingContent.replace('label', '');
-                              filterResultsEl.innerHTML += '<div id="' + holdingID + '"class="filter-label">' + holdingContent + ' X</div>';
+                              filterResultsEl.innerHTML += '<div id="' + holdingID + '"class="filter-label">' + holdingContent + ' <span>X</span></div>';
                               document.getElementById(holdingID).addEventListener("click", function(){
 
                                       var getNewID = this.id;
