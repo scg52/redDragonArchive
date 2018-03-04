@@ -82,7 +82,7 @@
                           setup_postdata( $post );
                 ?>
 
-              <article id="post-<?php the_ID(); ?>" <?php post_class( 'slideHide hidden cf' ); ?> role="article">
+              <article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article">
                 <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
                   <header class="entry-header article-header">
                   <h3 class="h2 entry-title"><?php the_title(); ?></h3>
@@ -112,10 +112,12 @@
               ?>
 
               <script type="text/javascript">
-                showResults();
-
-                if (window.width() <= 500) {
-                  document.getElementsByClassName('post').classList.remove('hidden');
+                if (screen.width >= 500) {
+                  showResults();
+                } else{
+                  document.getElementById('splash').classList.add('hidden');
+                  document.getElementById('splashBG').classList.add('hidden');
+                  document.getElementById('filterResults').classList.add('hidden');
                 }
               </script>
 
