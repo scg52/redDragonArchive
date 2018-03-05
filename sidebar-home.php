@@ -161,11 +161,12 @@
                               holdingContent = holdingContent.replace('label', '');
                               filterResultsEl.innerHTML += '<div id="' + holdingID + '"class="filter-label">' + holdingContent + ' <span>X</span></div>';
                               document.getElementById(holdingID).addEventListener("click", function(){
-
+                                console.log('holla');
                                       var getNewID = this.id;
                                       getNewID = getNewID.replace('label', 'select');
                                       var catEl = document.getElementById(getNewID);
                                       catEl.classList.remove('checked');
+
                                       showResults();
 
                               });
