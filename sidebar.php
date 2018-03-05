@@ -20,9 +20,9 @@
 				  <?php
                   foreach (get_categories('hide_empty=1&orderby=name&order=DESC&parent=2') as $category){
                     echo "<li id=\"select-" . $category->slug . "\" class=\"category-select\">";
-                    echo "<a href=\"" . get_home_url() . "?category=" . $category->slug . "\">";
+                    echo "<a href=\"" . get_home_url() . "?category=" . $category->slug . "\" class=\"sidebar-links\">";
                     echo $category->name;
-                    echo "<div class='checkmark'></a></div>";
+                    echo "<div class='checkmark'></div></a>";
                     echo "</li>";
                   } ?>
                 </ul>
@@ -33,9 +33,9 @@
 				  <?php
                   foreach (get_categories('hide_empty=1&orderby=name&parent=3') as $category){
                     echo "<li id=\"select-" . $category->slug . "\" class=\"category-select\">";
-                    echo "<a href=\"" . get_home_url() . "?category=" . $category->slug . "\">";
+                    echo "<a href=\"" . get_home_url() . "?category=" . $category->slug . "\" class=\"sidebar-links\">";
                     echo $category->name;
-                    echo "<div class='checkmark'></a></div>";
+                    echo "<div class='checkmark'></div></a>";
                     echo "</li>";
 
                   } ?>
@@ -47,9 +47,9 @@
 				  <?php
                   foreach (get_categories('hide_empty=1&orderby=name&order=ASC&parent=4') as $category){
                     echo "<li id=\"select-" . $category->slug . "\" class=\"category-select\">";
-                    echo "<a href=\"" . get_home_url() . "?category=" . $category->slug . "\">";
+                    echo "<a href=\"" . get_home_url() . "?category=" . $category->slug . "\" class=\"sidebar-links\">";
                     echo $category->name;
-                    echo "<div class='checkmark'></a></div>";
+                    echo "<div class='checkmark'></div></a>";
                     echo "</li>";
                   } ?>
                 </ul>
