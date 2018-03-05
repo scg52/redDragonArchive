@@ -1361,11 +1361,11 @@ HEADER STYLES
 .header {
   }
 
-#logo {
+/*#logo {
   margin: 0.75em 0; }
   #logo a {
     color: white; }
-
+*/
 /*********************
 NAVIGATION STYLES
 *********************/
@@ -1929,10 +1929,10 @@ you can add resource intensive styles.
     .widget ul li {
       margin-bottom: 0.75em;
       /* deep nesting */ }
-      .widget ul li ul {
+/*      .widget ul li ul {
         margin-top: 0.75em;
         padding-left: 1em; }
-
+*/
   /* links widget */
   /* meta widget */
   /* pages widget */
@@ -2177,7 +2177,7 @@ body {
 }
 
 .admin-bar {
-  margin-top: -32px;
+  margin-top: -2rem;
 }
 
 img {
@@ -2230,6 +2230,7 @@ p {
 
 .sidebar{
 	width: 13rem;
+  height: 100%;
   padding: 1rem;
   -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
   -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
@@ -2240,10 +2241,17 @@ p {
   box-sizing: border-box;
 }
 
-#Logo{
-  transform: scale(.75);
-  margin-top: -5rem;
-  margin-left: -3.5rem;
+#logo{
+  width: 8rem;
+  height: 12rem;
+  background: url('../images/logo-white.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
+#logo:hover{
+  background: url('../images/logo-gray.svg');
 }
 
 /*#logo{
@@ -2252,12 +2260,6 @@ p {
   z-index: -1;
 }
 */
-#logo img{
-  width: 100%;
-  padding-bottom: .5rem;
-  margin-bottom: .5rem;
-  border-bottom: 2px solid #fffcfc;
-}
 
 #archiveLink {
   height: 3rem;
@@ -2274,9 +2276,22 @@ p {
   transition: .2s;
 }
 #archiveLink:hover h1 {
-  color: #f23535;
+  color: #bbaaaa;
 }
 
+#filterContent {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  opacity: 1;
+  transition: opacity .5s;
+  pointer-events: all;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+
+}
 
 #search-2{
   margin: 1rem 0px;
@@ -2864,7 +2879,10 @@ a:hover .catico img {
   border-radius: 2px;
 }
 
-
+#search-2 {
+  flex: 1 0 60%;
+  margin: 1rem 0 0 0;
+}
 
 #searchform input {
   height: 100%;
@@ -2903,6 +2921,19 @@ a:hover .catico img {
   fill: #fffcfc;
 }
 
+#menuButton {
+  background: #fffcfc;
+  color: #900000;
+  padding: .3rem;
+  text-align: center;
+  border-radius: 3px;
+  height: 2rem;
+  font-family: 'Kallos';
+  margin: 1rem 1rem 0 0;
+
+  flex: 1 0 30%;
+  display: none;
+}
 
 
 /*--------------------------------------------------------- Mobile ---------------------------------------------------------*/
@@ -2918,7 +2949,7 @@ a:hover .catico img {
 
 #mobileHeader { 
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: space-between;
   width: 100%;
   /*height: 10rem;*/
@@ -2930,7 +2961,7 @@ a:hover .catico img {
   top: 0;
   left: 0;
   width: 100%;
-  height: 5rem;
+  height: 8rem;
   padding: .5rem;
   /*display: block;*/
   /*background: red;*/
@@ -2939,8 +2970,42 @@ a:hover .catico img {
 }
 
 
+#logo {
+  width: 6rem;
+  height: 4rem;
+  border: none;
+  background: url('../images/logoImg-white.svg');
+  background-repeat: no-repeat;
+  flex: 1 0 30%;
+}
 
-#voyageNav.redTheme {
+#logo:hover {
+  background: url('../images/logoImg-gray.svg');
+  height: 4rem;
+  width: 6rem;
+  background-repeat: no-repeat;
+}
+
+#filterContent {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  opacity: 0;
+  transition: opacity .5s;
+  pointer-events: none;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#filterContent ul {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+
+#nav.redTheme {
   transition: .5s all 0s;
   background: #211;
 }
@@ -2949,7 +3014,7 @@ a:hover .catico img {
   top: -6rem !important;
 }
 
-#voyageNavA {
+#navA {
   width: 10rem;
   height: 4rem;
   display: flex;
@@ -2960,10 +3025,11 @@ a:hover .catico img {
 
 }
 
+
 #mobileHeader img {
   max-height: 4rem;
 }
-#voyageNav h1 {
+#nav h1 {
   margin-top: 1rem;
   width: 6rem;
   white-space: normal;
@@ -2975,23 +3041,32 @@ a:hover .catico img {
   cursor: pointer;
   height: 4rem;
   width: 4rem;
-  background: url('../icons/compass-white.svg');
+  background: url('../images/compass-white.svg');
   background-size: cover;
   transition: transform .3s;
 }
 
-.barContainer {
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
-  opacity: 0;
-  transition: opacity .5s;
-  pointer-events: none;
-  display: flex;
-  flex-flow: row;
-  justify-content: flex-start;
-  align-items: center;
+#menuButton {
+  display: block;
+}
 
+#archiveLink {
+  height: 4rem;
+  width: auto;
+  box-sizing: border-box;
+  flex: 1 0 60%;
+  
+
+}
+
+#archiveLink h1 {
+  font-size: 5rem;
+  height: 4rem;
+  margin: 0 1rem 0 0;
+  color: #fffcfc;
+  font-weight: normal;
+  text-align: center;
+  transition: .2s;
 }
 
 #sideBar a .title {
@@ -3010,14 +3085,44 @@ a:hover .catico img {
 }
 
 .activeCompass {
-  background: url('../icons/compass-hover.svg') !important;
+  background: url('../images/compass-hover.svg') !important;
   transform-origin: 50% 50%;
   transform: rotateZ(45deg);
   background-repeat: no-repeat;
 }
 
+#homeOrFilter {
+  display: none;
+}
+
+#menuButton {
+  background: #baa;
+}
+
+#filterResults {
+  width: 100%;
+  height: 2.5rem;
+  box-sizing: border-box;
+  padding: 1rem;
+  transition: 1s;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 8rem;
+}
+#filterResults h3 {
+  color: #fffcfc;
+}
 
 
+#postArea {
+  margin-top: 10rem;
+  padding: 0;
+}
+
+#splash {
+  margin-top: 8rem;
+}
 }
 
 

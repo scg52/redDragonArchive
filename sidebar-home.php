@@ -5,13 +5,19 @@
 
 	<?php if ( is_active_sidebar( 'sidebar1' ) ) : ?>
          
-        <a id="logo" href="http://www.benrodia.com/red-dragon/beta-v3/#toVoyage">
-        	<img src="<?php echo get_template_directory_uri();?>/library/images/reddragon_white.png">
-        </a>
-        <a id="archiveLink"  href="http://www.scg52.com/Archive">
-          <h1>Archive</h1>
-        </a>
+    <div id="mobileHeader">
+      <a id="logo" href="http://www.benrodia.com/red-dragon/beta-v3/#toVoyage">
+        <h1></h1>
+      </a>
+      <!-- <a href="index.html" id="navA"></a> -->
+      <a id="archiveLink"  href="http://www.scg52.com/Archive">
+        <h1>Archive</h1>
+      </a>
+      <!-- <div id="compassButton"></div> -->
+      <div id="menuButton">Filter</div>
 		<?php dynamic_sidebar( 'sidebar1' );?>
+    </div>
+    <div id="filterContent">
 		<ul>
 			<li>
 				<h3>Author</h3>
@@ -85,7 +91,7 @@
 		</div>
 
 	<?php endif; ?>
-
+</div>
 </div>
 
 
@@ -190,6 +196,22 @@
 					function hasClass(element, cls) {
                         return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
                     }
+
+          var filterBtn = document.getElementById('menuButton');
+          var filterContent = document.getElementById('filterContent');
+          var sidebar = document.getElementById('sidebar');
+
+              filterBtn.addEventListener("click", function(){
+                    
+                    if (hasClass(filterContent, 'openFilter')) {
+                      filterContent.classList.remove('openFilter');
+                      sidebar.classList.remove('openMenu');
+                    } else {
+                      filterContent.classList.add('openFilter');
+                      sidebar.classList.add('openMenu');
+                    }
+              });
+ 
 				</script>
 
 				<style>
@@ -217,4 +239,12 @@
  background: #fffcfc;
 }
 
+.openFilter {
+  opacity: 1 !important;
+  pointer-events: all !important;
+}
+
+.openMenu {
+  height: 100% !important;
+}
 				</style>
