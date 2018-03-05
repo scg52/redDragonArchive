@@ -61,7 +61,7 @@
                           <?php include 'sidebar-home.php'; ?>
 
               <div class="arDiv">
-                <h1 class="archiveBanner">Archive <span id="homeOrFilter">Home</span></h1>
+                <h1 id="homeOrFilter" class="archiveBanner">Archive</h1>
                 <div id="filterResults" class="slideHide">
                   <h3>Filters:</h3>
                 </div>

@@ -2465,6 +2465,11 @@ input[type="submit"]:hover {
   background-attachment: fixed;
 }
 
+
+#homeOrFilter {
+  font-family: 'Zapfino';
+}
+
 .title{
 /*	display: grid;
   grid-template-areas:". arctitle ."

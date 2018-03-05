@@ -124,14 +124,14 @@
                         if (checkedCats.length > 0) {
                           splashEl.classList.add('hidden');
                           splashBGEl.classList.add('slideHide');
-                          homeOrFilterEl.innerHTML('Filter');
+                          homeOrFilterEl.innerHTML = 'Filter';
 
                           postArea.classList.remove('hidden');
                           filterResultsEl.classList.remove('slideHide');
                         }else {
                           splashEl.classList.remove('hidden');
                           splashBGEl.classList.remove('slideHide');
-                          homeOrFilterEl.innerHTML('Home');
+                          homeOrFilterEl.innerHTML = 'Archive';
 
                           postArea.classList.add('hidden');
                           filterResultsEl.classList.add('slideHide');
