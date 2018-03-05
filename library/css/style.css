@@ -2935,6 +2935,11 @@ a:hover .catico img {
   display: none;
 }
 
+#menuButton:hover {
+  cursor: pointer;
+  background: #baa;
+}
+
 
 /*--------------------------------------------------------- Mobile ---------------------------------------------------------*/
 
@@ -3095,9 +3100,6 @@ a:hover .catico img {
   display: none;
 }
 
-#menuButton {
-  background: #baa;
-}
 
 #filterResults {
   width: 100%;
