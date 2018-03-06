@@ -32,45 +32,34 @@
 											<!-- uses dynamic content -->
 										</div>
 									<?php
+									    $pageNum;
+									    if (isset($_GET["page"])) {
+									    	$pageNum = $_GET["page"];
+									    }else{
+									    	$pageNum = 1;
+									    }
+
+                                        $textContent = get_the_content();
+                                        $textContent = str_replace("<-page" . $pageNum . "->","",$textContent);
+                                        $textContent = str_replace(" Translation","",$textContent);
+                                        $textContent = str_replace(" Transcription","",$textContent);
+                                        $textContent = str_replace("<-b->","<br>",$textContent);
+									    $manuscript = explode("<!--section-->", $textContent);
+
 										// content
-									    if (!isset($_GET["page"])) {
 
-									    	?> <div class="post-picture"> <?php
-									    	echo get_post_meta($post->ID, 'Picture1', true);
-									    	?></div> <!-- post-picture -->
+									    ?> <div class="post-picture"> <?php
+									    print_r($manuscript[0]);
+									    ?></div> <!-- post-picture -->
 
-									    	<div id="translation-content"> <?php
-									    	echo get_post_meta($post->ID, 'Translation1', true);
-									    	?> </div> <!-- translation-content -->
+									    <div id="transcription-content"> <?php
+									    echo $manuscript[1];
+									    ?> </div> <!-- translation-content -->
 									    	 
-									    	<div id="transcription-content"> <?php
-									    	echo get_post_meta($post->ID, 'Transcription1', true);
-									    	?> </div>  <!-- transcription-content --> 
-
-
-									    	<?php
-
-									    }
-									    else{
-
-                                            ?> <div class="post-picture"> <?php
-										    $picNum = 'Picture' . $_GET["page"];
-										    echo get_post_meta($post->ID, $picNum, true);
-                                            ?> </div> <!-- post-picture -->
-
-                                            <div id="translation-content"> <?php
-									    	$pageNum = 'Translation' . $_GET["page"];
-										    echo get_post_meta($post->ID, $pageNum, true);
-                                            ?> </div> <!-- translation-content -->
-
-                                            <div id="transcription-content"> <?php
-										    $tranNum = 'Transcription' . $_GET["page"];
-										    echo get_post_meta($post->ID, $tranNum, true);
-										    ?> </div> <!-- transcription-content --> <?php
-
-									    }
-										
-									?>
+									    <div id="translation-content"> <?php
+									    echo $manuscript[2];
+									    ?> </div>  <!-- transcription-content --> 
+									    
 									</div> <!-- manuscript -->
 
 									<?php if ( function_exists( 'pgntn_display_pagination' ) ) pgntn_display_pagination( 'multipage' ); 
