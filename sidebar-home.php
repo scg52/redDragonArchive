@@ -20,7 +20,7 @@
     <div id="filterContent">
 		<ul>
 			<li>
-				<h3>NOT Author</h3>
+				<h3>Author</h3>
 				<ul>
 				  <?php
                   foreach (get_categories('hide_empty=1&orderby=name&order=DESC&parent=2') as $category){
