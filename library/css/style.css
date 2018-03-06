@@ -1943,15 +1943,15 @@ you can add resource intensive styles.
   /* category widget */
   /* recent-comments widget */
   /* search widget */
-  #searchform div {
+  #searchform {
     display: flex;
   }
-  #searchform div * {
+  #searchform {
     transition: .2s;
   }
 
   #s{
-    width: 60%;
+    /*width: 60%;*/
     height: 2rem;
     border-color: #fffcfc;
     border-width: 3px;
@@ -2876,7 +2876,8 @@ a:hover .catico img {
   height: 2rem;
   box-sizing: border-box;
   transition: .2s;
-  border-radius: 2px;
+  border-radius: 3px;
+  border: 2px solid #fffcfc;
 }
 
 #search-2 {
@@ -2884,40 +2885,42 @@ a:hover .catico img {
   margin: 1rem 0 0 0;
 }
 
-#searchform input {
+#searchform #s {
   height: 100%;
   width: 100%;
   margin: 0;
-  padding: .125rem;
+  padding: .125rem .25rem;
   box-sizing: border-box;
-  background: #baa;
-  transition: .2s;
-}
-
-#searchform:hover input {
-  border-color: #f23535;
   background: #fffcfc;
-  color: #211;
+  border-radius: 0px;
+  transition: .2s;
+
 }
 
-#searchform button {
+#searchform:hover {
+  border: 2px solid #baa;
+}
+
+#searchform #searchsubmit {
   width: 2rem;
   height: 100%;
   margin: 0;
   padding: .125rem;
   transition: .2s;
+  background: #fffcfc;
+  border: none;
 }
 
-#searchform:hover button {
-  background: #f23535;
-  border-color: #f23535;
+#searchform:hover #searchsubmit {
+  background: #baa;
+  border-color: #baa;
 }
 
-#searchform button svg {
+#searchform #searchsubmit svg {
   transition: .2s;
   fill: #900000;
 }
-#searchform:hover button svg {
+#searchform:hover #searchsubmit svg {
   fill: #fffcfc;
 }
 
