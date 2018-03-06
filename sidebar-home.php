@@ -214,9 +214,11 @@
               filterBtn.addEventListener("click", function(){
                     
                     if (hasClass(filterContent, 'openFilter')) {
+                      this.innerHTML = 'Filter';
                       filterContent.classList.remove('openFilter');
                       sidebar.classList.remove('openMenu');
                     } else {
+                      this.innerHTML = 'Go';
                       filterContent.classList.add('openFilter');
                       sidebar.classList.add('openMenu');
                     }

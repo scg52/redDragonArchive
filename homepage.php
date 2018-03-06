@@ -68,7 +68,7 @@
                 <div id="archiveBG" class="imgBG"></div>
 
                 <div id="splash" class="splash">
-                    <p class="textBox">Welcome to the Archive! This is your stop to dig deeper into the exploits of the Red Dragon crew and their most sordid ventures. To begin exploring, simply select the categories you are interested in on the menu there, or enter a search term. Enjoy!</p>
+                    <p class="textBox" id="splash-intro">Welcome to the Archive! This is your stop to dig deeper into the exploits of the Red Dragon crew and their most sordid ventures. To begin exploring, simply select the categories you are interested in on the menu there, or enter a search term. Enjoy!</p>
                 </div>
                 <div id="splashBG" class="imgBG"></div>
                   
@@ -112,13 +112,11 @@
               ?>
 
               <script type="text/javascript">
-                if (screen.width >= 500) {
-                  showResults();
-                } else{
-                  document.getElementById('splash').classList.add('hidden');
-                  document.getElementById('splashBG').classList.add('hidden');
-                  document.getElementById('filterResults').classList.add('hidden');
+                if (screen.width <= 500) {
+                  document.getElementById('splash-intro').innerHTML = 'Welcome to the Archive! This is your stop to dig deeper into the exploits of the Red Dragon crew and their most sordid ventures. To begin exploring, simply click the Filter button to filter documents, or enter a search term. Enjoy!';
                 }
+
+                showResults();
               </script>
 
               </div> 
