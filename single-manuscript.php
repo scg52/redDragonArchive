@@ -28,8 +28,8 @@
                                         <div id="translation-button">
 											Translation
 										</div>
-										<div id="visible">
-											<!-- uses dynamic content -->
+										<div id="pic-button">
+											Picture
 										</div>
 									<?php
 									    $pageNum;
@@ -48,15 +48,15 @@
 
 										// content
 
-									    ?> <div class="post-picture"> <?php
+									    ?> <div id="manuscript-picture" class="post-picture"> <?php
 									    print_r($manuscript[0]);
 									    ?></div> <!-- post-picture -->
 
-									    <div id="transcription-content"> <?php
+									    <div id="transcription-content" class="display-text"> <?php
 									    echo $manuscript[1];
 									    ?> </div> <!-- translation-content -->
 									    	 
-									    <div id="translation-content"> <?php
+									    <div id="translation-content" class="display-text"> <?php
 									    echo $manuscript[2];
 									    ?> </div>  <!-- transcription-content --> 
 									    
@@ -67,36 +67,67 @@
 
 									<script type="text/javascript">
                                         
-                                        var transcriptEl = document.getElementById('transcript-button');
-                                        var translationEl = document.getElementById('translation-button');
+                                        var transcriptButton = document.getElementById('transcript-button');
+                                        var translationButton = document.getElementById('translation-button');
+                                        var pictureButton = document.getElementById('pic-button');
+                                        transcriptButton.style.backgroundColor = "#f23535";
 
-                                        var transcriptCont = document.getElementById('transcription-content');
-                                    	var visibleEl = document.getElementById('visible');
-                                        visibleEl.innerHTML = transcriptCont.innerHTML;
-
-                                        transcriptEl.style.backgroundColor = "#f23535";
+                                        translationEl.classList.add('hidden');
+                                        if (screen.width <= 500) {
+                                          pictureEl.classList.add('hidden');
+                                        }
                                         
                                         //show transcript
-                                        transcriptEl.addEventListener("click", function(){
-                                    	  var transcriptCont = document.getElementById('transcription-content');
-                                    	  var visibleEl = document.getElementById('visible');
-                                          visibleEl.innerHTML = transcriptCont.innerHTML;
+                                        transcriptButton.addEventListener("click", function(){
+                                    	  var transcriptEl = document.getElementById('transcription-content');
+                                    	  var translationEl = document.getElementById('translation-content');
+                                    	  var pictureEl = document.getElementById('manuscript-picture');
 
-                                          this.style.backgroundColor = "#f23535";
-                                          var translationEl = document.getElementById('translation-button');
-                                          translationEl.style.backgroundColor = "#900000";
+                                    	  if(hasClass(translationEl, 'hidden')){
+                                            pictureEl.classList.add('hidden');
+                                            transcriptEl.classList.remove('hidden');
+                                    	  }else{
+                                            translationEl.classList.add('hidden');
+                                            transcriptEl.classList.remove('hidden');
+                                    	  }
                                         });
 
                                         //show translation
-                                        translationEl.addEventListener("click", function(){
-                                    	  var translationCont = document.getElementById('translation-content');
-                                    	  var visibleEl = document.getElementById('visible');
-                                          visibleEl.innerHTML = translationCont.innerHTML;
+                                        translationButton.addEventListener("click", function(){
+                                    	  var transcriptEl = document.getElementById('transcription-content');
+                                    	  var translationEl = document.getElementById('translation-content');
+                                    	  var pictureEl = document.getElementById('manuscript-picture');
 
-                                          this.style.backgroundColor = "#f23535";
-                                          var transcriptEl = document.getElementById('transcript-button');
-                                          transcriptEl.style.backgroundColor = "#900000";
+                                    	  if(hasClass(transcriptionEl, 'hidden')){
+                                            pictureEl.classList.add('hidden');
+                                            translationEl.classList.remove('hidden');
+                                    	  }else{
+                                            translationEl.classList.add('hidden');
+                                            translationEl.classList.remove('hidden');
+                                    	  }
                                         });
+
+                                        //show picture
+                                        if (screen.width <= 500) {
+                                          pictureButton.addEventListener("click", function(){
+                                    	    var transcriptEl = document.getElementById('transcription-content');
+                                    	    var translationEl = document.getElementById('translation-content');
+                                    	    var pictureEl = document.getElementById('manuscript-picture');
+
+                                    	    if(hasClass(translationEl, 'hidden')){
+                                              transcriptEl.classList.add('hidden');
+                                              pictureEl.classList.remove('hidden');
+                                    	    }else{
+                                              translationEl.classList.add('hidden');
+                                              pictureEl.classList.remove('hidden');
+                                    	    }
+                                          });
+                                        }
+
+
+                                        function hasClass(element, cls) {
+                                            return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+                                        }
 
                                     </script>
                                     
