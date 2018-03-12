@@ -7,14 +7,12 @@
 
 						  <div class="post-page">
 
-                <div id="archiveBG" class="imgBG"></div>
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 							<article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article">
 
 								<header class="article-header">
-<!-- 									<a href="http://www.benrodia.com/red-dragon/archive" class="returnToHome"><h3>Return to Archive Home</h3></a>
- -->
+
 									<h1 class="single-title custom-post-type-title"><?php the_title(); ?></h1>
 
 								</header>
@@ -28,8 +26,8 @@
                                         <div id="translation-button">
 											Translation
 										</div>
-										<div id="pic-button">
-											Picture
+										<div id="visible">
+											<!-- uses dynamic content -->
 										</div>
 									<?php
 									    $pageNum;
@@ -49,7 +47,7 @@
 										// content
 
 									    ?> <div id="manuscript-picture" class="post-picture"> <?php
-									    print_r($manuscript[0]);
+									    echo $manuscript[0];
 									    ?></div> <!-- post-picture -->
 
 									    <div id="transcription-content" class="display-text"> <?php
@@ -65,72 +63,41 @@
 									<?php if ( function_exists( 'pgntn_display_pagination' ) ) pgntn_display_pagination( 'multipage' ); 
 									?>
 
-									<script type="text/javascript">
+                                    <script type="text/javascript">
                                         
-                                        var transcriptButton = document.getElementById('transcript-button');
-                                        var translationButton = document.getElementById('translation-button');
-                                        var pictureButton = document.getElementById('pic-button');
-                                        transcriptButton.style.backgroundColor = "#f23535";
+                                        var transcriptEl = document.getElementById('transcript-button');
+                                        var translationEl = document.getElementById('translation-button');
 
-                                        translationEl.classList.add('hidden');
-                                        if (screen.width <= 500) {
-                                          pictureEl.classList.add('hidden');
-                                        }
+                                        var transcriptCont = document.getElementById('transcription-content');
+                                    	var visibleEl = document.getElementById('visible');
+                                        visibleEl.innerHTML = transcriptCont.innerHTML;
+
+                                        transcriptEl.style.backgroundColor = "#5B0F0F";
                                         
                                         //show transcript
-                                        transcriptButton.addEventListener("click", function(){
-                                    	  var transcriptEl = document.getElementById('transcription-content');
-                                    	  var translationEl = document.getElementById('translation-content');
-                                    	  var pictureEl = document.getElementById('manuscript-picture');
+                                        transcriptEl.addEventListener("click", function(){
+                                    	  var transcriptCont = document.getElementById('transcription-content');
+                                    	  var visibleEl = document.getElementById('visible');
+                                          visibleEl.innerHTML = transcriptCont.innerHTML;
 
-                                    	  if(hasClass(translationEl, 'hidden')){
-                                            pictureEl.classList.add('hidden');
-                                            transcriptEl.classList.remove('hidden');
-                                    	  }else{
-                                            translationEl.classList.add('hidden');
-                                            transcriptEl.classList.remove('hidden');
-                                    	  }
+                                          this.style.backgroundColor = "#5B0F0F";
+                                          var translationEl = document.getElementById('translation-button');
+                                          translationEl.style.backgroundColor = "#9a0000";
                                         });
 
                                         //show translation
-                                        translationButton.addEventListener("click", function(){
-                                    	  var transcriptEl = document.getElementById('transcription-content');
-                                    	  var translationEl = document.getElementById('translation-content');
-                                    	  var pictureEl = document.getElementById('manuscript-picture');
+                                        translationEl.addEventListener("click", function(){
+                                    	  var translationCont = document.getElementById('translation-content');
+                                    	  var visibleEl = document.getElementById('visible');
+                                          visibleEl.innerHTML = translationCont.innerHTML;
 
-                                    	  if(hasClass(transcriptionEl, 'hidden')){
-                                            pictureEl.classList.add('hidden');
-                                            translationEl.classList.remove('hidden');
-                                    	  }else{
-                                            translationEl.classList.add('hidden');
-                                            translationEl.classList.remove('hidden');
-                                    	  }
+                                          this.style.backgroundColor = "#5B0F0F";
+                                          var transcriptEl = document.getElementById('transcript-button');
+                                          transcriptEl.style.backgroundColor = "#9a0000";
                                         });
 
-                                        //show picture
-                                        if (screen.width <= 500) {
-                                          pictureButton.addEventListener("click", function(){
-                                    	    var transcriptEl = document.getElementById('transcription-content');
-                                    	    var translationEl = document.getElementById('translation-content');
-                                    	    var pictureEl = document.getElementById('manuscript-picture');
-
-                                    	    if(hasClass(translationEl, 'hidden')){
-                                              transcriptEl.classList.add('hidden');
-                                              pictureEl.classList.remove('hidden');
-                                    	    }else{
-                                              translationEl.classList.add('hidden');
-                                              pictureEl.classList.remove('hidden');
-                                    	    }
-                                          });
-                                        }
-
-
-                                        function hasClass(element, cls) {
-                                            return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
-                                        }
-
                                     </script>
-                                    
+
 								</section> <!-- end article section -->
 
 							</article>

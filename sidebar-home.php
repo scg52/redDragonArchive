@@ -1,6 +1,6 @@
 <div id="sidebar" class="sidebar" role="complementary">
 
-	<?php if ( is_active_sidebar( 'sidebar1' ) ) : ?>
+  <?php if ( is_active_sidebar( 'sidebar1' ) ) : ?>
          
     <div id="mobileHeader">
       <a id="logo" href="http://www.benrodia.com/red-dragon/beta-v3/#toVoyage">
@@ -12,14 +12,14 @@
       </a>
       <!-- <div id="compassButton"></div> -->
       <div id="menuButton">Filter</div>
-		<?php dynamic_sidebar( 'sidebar1' );?>
+    <?php dynamic_sidebar( 'sidebar1' );?>
     </div>
     <div id="filterContent">
-		<ul>
-			<li>
-				<h3>Author</h3>
-				<ul>
-				  <?php
+    <ul>
+      <li>
+        <h3>Author</h3>
+        <ul>
+          <?php
                   foreach (get_categories('hide_empty=1&orderby=name&order=DESC&parent=2') as $category){
                     if($selectedCategory == $category->slug){
                       echo "<li id=\"select-" . $category->slug . "\" class=\"category-select checked\">";
@@ -34,11 +34,11 @@
                     }
                   } ?>
                 </ul>
-			</li>
-			<li>
-				<h3>Location</h3>
-				<ul>
-				  <?php
+      </li>
+      <li>
+        <h3>Location</h3>
+        <ul>
+          <?php
                   foreach (get_categories('hide_empty=1&orderby=name&parent=3') as $category){
                     if($selectedCategory == $category->slug){
                       echo "<li id=\"select-" . $category->slug . "\" class=\"category-select checked\">";
@@ -53,11 +53,11 @@
                     }
                   } ?>
                 </ul>
-			</li>
-			<li>
-				<h3>Media Type</h3>
-				<ul>
-				  <?php
+      </li>
+      <li>
+        <h3>Media Type</h3>
+        <ul>
+          <?php
                   foreach (get_categories('hide_empty=1&orderby=name&order=ASC&parent=4') as $category){
                     if($selectedCategory == $category->slug){
                       echo "<li id=\"select-" . $category->slug . "\" class=\"category-select checked\">";
@@ -72,48 +72,48 @@
                     }
                   } ?>
                 </ul>
-			</li>
-		</ul>
+      </li>
+    </ul>
 
-	<?php else : ?>
+  <?php else : ?>
 
-		<?php
-			/*
-			 * This content shows up if there are no widgets defined in the backend.
-			*/
-		?>
+    <?php
+      /*
+       * This content shows up if there are no widgets defined in the backend.
+      */
+    ?>
 
-		<div class="no-widgets">
-			<p><?php _e( 'This is a widget ready area. Add some and they will appear here.', 'bonestheme' );  ?></p>
-		</div>
+    <div class="no-widgets">
+      <p><?php _e( 'This is a widget ready area. Add some and they will appear here.', 'bonestheme' );  ?></p>
+    </div>
 
-	<?php endif; ?>
+  <?php endif; ?>
 </div>
 </div>
 
 
 
 
-				<script type="text/javascript">
+        <script type="text/javascript">
 
           var catEl = document.getElementsByClassName('category-select');
 
-					for (var i = 0; i < catEl.length; i++) {
-						catEl[i].addEventListener("click", function(){
+          for (var i = 0; i < catEl.length; i++) {
+            catEl[i].addEventListener("click", function(){
                           
                           if (hasClass(this, 'checked')) {
-                          	this.classList.remove('checked');
+                            this.classList.remove('checked');
                           } else {
-                          	this.classList.add('checked');
+                            this.classList.add('checked');
                           }
 
                           showResults();
                           
-					    });
-					}
+              });
+          }
 
-					function showResults(){
-						            var catEl = document.getElementsByClassName('category-select');
+          function showResults(){
+                        var catEl = document.getElementsByClassName('category-select');
                         var checkedCats = document.getElementsByClassName('checked');
                         var splashEl = document.getElementById('splash');
                         var splashBGEl = document.getElementById('splashBG');
@@ -145,10 +145,10 @@
                         switchlist = document.getElementsByClassName('post');
                         console.log("switchlist add slideHide: " + switchlist);
                         for (var i = 0; i < switchlist.length; i++) {
-                        	if(!hasClass(switchlist[i], 'slideHide')){
+                          if(!hasClass(switchlist[i], 'slideHide')){
                             switchlist[i].classList.add('slideHide');
-          						      switchlist[i].classList.add('hidden');
-          						    }
+                            switchlist[i].classList.add('hidden');
+                          }
                           filterResultsEl.innerHTML = '<h3>Filters:</h3>';
                         }
 
@@ -157,8 +157,8 @@
                         //search all the categories for ones with the class of checked
                         for (var i = 0; i < checkedCats.length; i++) {
                           
-                        	for (var j = 0; j < catEl.length; j++) {
-                        		if (checkedCats[i] == catEl[j]) {
+                          for (var j = 0; j < catEl.length; j++) {
+                            if (checkedCats[i] == catEl[j]) {
 
                               //create filter box at top
                               console.log('category ' + checkedCats[i].id);
@@ -171,19 +171,19 @@
                               console.log('added element to array');
 
 
-                        			getID = checkedCats[i].id;
-						                  getID = getID.replace('select', 'category');
-						                  switchlist = document.getElementsByClassName(getID);
+                              getID = checkedCats[i].id;
+                              getID = getID.replace('select', 'category');
+                              switchlist = document.getElementsByClassName(getID);
 
-						                  for (var t = 0; t < switchlist.length; t++) {
-						                    //don't remove a class from an object that has already had it removed
-						                    if(hasClass(switchlist[t], 'slideHide')){
+                              for (var t = 0; t < switchlist.length; t++) {
+                                //don't remove a class from an object that has already had it removed
+                                if(hasClass(switchlist[t], 'slideHide')){
                                   switchlist[t].classList.remove('slideHide');
-						              	      switchlist[t].classList.remove('hidden');
+                                  switchlist[t].classList.remove('hidden');
                                   console.log('switchlist item ' + switchlist[t]);
-						                    }
-                        		  }/*for switchlist*/
-                        	  }/*if checkedCats = atEl*/
+                                }
+                              }/*for switchlist*/
+                            }/*if checkedCats = atEl*/
                           }/*for catEl*/
                         }/*for checkedCats*/
 
@@ -198,9 +198,9 @@
                           });
                         }
 
-					} /*function*/
+          } /*function*/
 
-					function hasClass(element, cls) {
+          function hasClass(element, cls) {
                         return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
                     }
 
@@ -221,10 +221,10 @@
                     }
               });
  
-				</script>
+        </script>
 
-				<style>
-					
+        <style>
+          
 .hidden{
  display: none;
 }
@@ -256,4 +256,4 @@
 .openMenu {
   height: 100% !important;
 }
-				</style>
+        </style>

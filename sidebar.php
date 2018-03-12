@@ -19,6 +19,19 @@
     </div>
     <div id="filterContent">
 		<ul>
+      <li>
+        <h3>Media Type</h3>
+        <ul>
+          <?php
+                  foreach (get_categories('hide_empty=1&orderby=name&order=ASC&parent=4') as $category){
+                    echo "<li id=\"select-" . $category->slug . "\" class=\"category-select\">";
+                    echo "<a href=\"" . get_home_url() . "?category=" . $category->slug . "\" class=\"sidebar-links\">";
+                    echo $category->name;
+                    echo "<div class='checkmark'></div></a>";
+                    echo "</li>";
+                  } ?>
+                </ul>
+      </li>
 			<li>
 				<h3>Author</h3>
 				<ul>
@@ -43,19 +56,6 @@
                     echo "<div class='checkmark'></div></a>";
                     echo "</li>";
 
-                  } ?>
-                </ul>
-			</li>
-			<li>
-				<h3>Media Type</h3>
-				<ul>
-				  <?php
-                  foreach (get_categories('hide_empty=1&orderby=name&order=ASC&parent=4') as $category){
-                    echo "<li id=\"select-" . $category->slug . "\" class=\"category-select\">";
-                    echo "<a href=\"" . get_home_url() . "?category=" . $category->slug . "\" class=\"sidebar-links\">";
-                    echo $category->name;
-                    echo "<div class='checkmark'></div></a>";
-                    echo "</li>";
                   } ?>
                 </ul>
 			</li>

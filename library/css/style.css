@@ -2229,9 +2229,11 @@ p {
 /*---------------------------------------------------------Sidebar---------------------------------------------------------*/
 
 .sidebar{
-	width: 13rem;
+  width: 10rem;
+  max-width: 10rem;
+	min-width: 10rem;
   height: 100%;
-  padding: 1rem;
+  padding: 14rem 1rem 1rem;
   -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
   -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
   box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
@@ -2248,10 +2250,19 @@ p {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  position: absolute;
+  top: 1rem;
 
 }
 #logo:hover{
+  width: 8rem;
+  height: 12rem;
   background: url('../images/logo-gray.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 1rem;
 }
 
 /*#logo{
@@ -2333,8 +2344,8 @@ p {
   transition: .2s;
   color: #fffcfc;
 }
-.category-select:hover {
-  color: #f23535;
+.category-select:hover,.category-select:hover a {
+  color: #baa;
 }
 
 .category-select a {
@@ -2352,8 +2363,14 @@ p {
 }
 
 .category-select:hover .checkmark {
-  border-color: #f23535;
+  border-color: #baa;
 }
+
+.checked:hover .checkmark {
+  background: #baa !important;
+  border-color: #baa !important;
+}
+
 
 
 .children {
@@ -2384,7 +2401,7 @@ p {
   border: 3px solid #fffcfc;
 }
 .children .cat-item:hover label {
-  color: #f23535;
+  color: #baa;
 }
 
 .sidebar-links{
@@ -2589,6 +2606,7 @@ a:hover .catico img {
 .post-page .post{
   width: 100%;
   position: relative;
+  margin: 0 0 3rem;
 }
 
 /*---------------------------------------------------------Archive---------------------------------------------------------*/
@@ -2640,14 +2658,14 @@ a:hover .catico img {
   transition: 1s;
 }
 
-.post-page{
-  max-width: 85%;
-}
 
 .post-page h1 {
   font-size: 6rem;
-  height: 6rem;
+  /*height: 6rem;*/
   box-sizing: border-box;
+  word-spacing: -.5rem;
+  /*line-height: 1.5rem;*/
+
 }
 
 
@@ -2688,13 +2706,11 @@ a:hover .catico img {
 #visible{
   grid-area: content;
   padding: 1rem;
-  background: rgba(255,250,250,.9);
+  background: #fffcfc;
   color: #221;
   font: 'Neuton';
   letter-spacing: 1px;
   line-height: 1.5;
-
-
 }
 
 #transcription-content{
@@ -2705,11 +2721,22 @@ a:hover .catico img {
   display: none;
 }
 
+
+#pic-button{
+  cursor: pointer;
+  text-align: center;
+  color: #fffcfc;
+  background-color: #900000;
+  font-size: 1.25rem;
+  padding: 5px;
+  grid-area: imageButton;
+}
+
 #transcript-button{
   cursor: pointer;
   text-align: center;
-  color: white;
-  background-color: #5B0F0F;
+  color: #fffcfc;
+  background-color: #900000;
   font-size: 1.25rem;
   padding: 5px;
   grid-area: transcriptionButton;
@@ -2718,22 +2745,29 @@ a:hover .catico img {
 #translation-button{
   cursor: pointer;
   text-align: center;
-  color: white;
+  color: #fffcfc;
   background-color: #900000;
   font-size: 1.25rem;
   padding: 5px;
   grid-area: translationButton;
 }
 
-.post-picture{
+.post-picture {
   grid-area: picture;
-  max-width: 30rem;
   height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; 
 }
 
 .post-picture img {
-  height: 100%;
-  /*margin: 0 auto;*/
+  max-width: 30rem;
+  max-height: 30rem;
+  width: 100%;
+  height: auto;
+  margin: 0;
 }
 
 .buttons{
@@ -2756,7 +2790,9 @@ a:hover .catico img {
 #postArea .entry-content img {
   opacity: .5;
   transform-origin: 50% 50%;
-  transform: scale(1.3);
+  /*transform: scale(1.3);*/
+  min-width: 100%;
+  min-height: 100%;
 }
 
 
@@ -2789,8 +2825,26 @@ a:hover .catico img {
   color: #fffcfc;
 }
 
+.pgntn-page-pagination-block {
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #900000;
+}
 
-
+.pgntn-page-pagination-block a {
+  color: #fffcfc;
+  transition: .2s;
+  padding: .5rem 1rem;
+  font-size: 1.3rem;
+}
+.pgntn-page-pagination-block a:hover {
+  color: #baa;  
+}
 
 
 /*---------------------------------------------------------Search---------------------------------------------------------*/
@@ -2814,8 +2868,8 @@ a:hover .catico img {
   height: 12rem;
 }
 #postArea article  {
-  width: 12rem !important;
-  height: 12rem !important;
+  width: 12rem;
+  height: 12rem;
   background: #900000;
   padding: 0;
   margin: 1rem; 
@@ -2840,23 +2894,31 @@ a:hover .catico img {
 
 #filterResults {
   width: 100%;
-  background: #900000;
-  height: 2.5rem;
+  background: #211;
+  min-height: 2.5rem;
+  height: auto;
+  padding: .5rem .5rem 0 .5rem;
   box-sizing: border-box;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: center;
-  padding: 1rem;
   transition: 1s;
 }
 
+#filterContent ul {
+  width: 100%;
+}
+#filterContent li {
+  font-size: 1.1rem;
+}
 #filterResults h3 {
   color: #fffcfc;
+  margin: 0; 
 }
 
 .filter-label {
-  margin-left: 1rem;
+  margin:  0 0 .5rem .5rem;
   color: #900000;
   background: #fffcfc;
   padding: .125rem .5rem;
@@ -2865,7 +2927,7 @@ a:hover .catico img {
 }
 .filter-label:hover { 
   color: #fffcfc;
-  background: #f23535;
+  background: #baa;
 }
 
 #searchform {
@@ -2919,6 +2981,8 @@ a:hover .catico img {
 #searchform #searchsubmit svg {
   transition: .2s;
   fill: #900000;
+  width: 1.3rem;
+  height: 1.6rem;
 }
 #searchform:hover #searchsubmit svg {
   fill: #fffcfc;
@@ -2933,6 +2997,7 @@ a:hover .catico img {
   height: 2rem;
   font-family: 'Kallos';
   margin: 1rem 1rem 0 0;
+  transition: .2s;
 
   flex: 1 0 30%;
   display: none;
@@ -2941,7 +3006,33 @@ a:hover .catico img {
 #menuButton:hover {
   cursor: pointer;
   background: #baa;
+  color: #fffcfc;
 }
+
+#postArea #post-not-found {
+  width: 15rem;
+  height: 15rem;
+  background: #fffcfc;
+  margin: 0 auto; 
+}
+#postArea #post-not-found .article-header {
+  display: none;
+}
+#postArea #post-not-found .entry-content {
+  width: 15rem;
+  height: 15rem;
+  text-align: center;
+  color: #211;
+  align-self: center;
+  font-size: 2rem;
+  display: flex;
+  align-items: center; 
+}
+#postArea #post-not-found .entry-content p{
+  margin: 0;
+}
+
+
 
 
 /*--------------------------------------------------------- Mobile ---------------------------------------------------------*/
@@ -2964,11 +3055,13 @@ a:hover .catico img {
   box-sizing: border-box;
 }
 
-#sidebar {
+.sidebar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  max-width: 100%;
+  min-width: 100%;
   height: 8rem;
   padding: .5rem;
   /*display: block;*/
@@ -3010,8 +3103,34 @@ a:hover .catico img {
 #filterContent ul {
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: stretch;
 }
 
+#filterContent ul li {
+  width: 10rem;
+  padding: 1rem;
+}
+
+#filterContent ul li h3 {
+  
+  margin-top: 0;
+}
+
+#filterContent ul li ul li{
+  width: auto;
+  padding: 0;
+}
+
+#filterContent ul li ul {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+#filterContent ul li ul:last-child {
+  align-self: flex-end;
+}
 
 #nav.redTheme {
   transition: .5s all 0s;
@@ -3099,16 +3218,17 @@ a:hover .catico img {
   background-repeat: no-repeat;
 }
 
-#homeOrFilter {
+.archiveBanner {
   display: none;
 }
 
 
 #filterResults {
   width: 100%;
-  height: 2.5rem;
+  min-height: 2.5rem;
+  height: auto;
   box-sizing: border-box;
-  padding: 1rem;
+  padding: .5rem .5rem 0 .5rem;
   transition: 1s;
   position: fixed;
   z-index: 10;
@@ -3117,6 +3237,7 @@ a:hover .catico img {
 }
 #filterResults h3 {
   color: #fffcfc;
+  margin: 0;
 }
 
 
@@ -3128,6 +3249,44 @@ a:hover .catico img {
 #splash {
   margin-top: 8rem;
 }
+
+
+#postArea .entry-content  {
+  width: 9rem;
+  height: 9rem;
+}
+
+#postArea article  {
+  width: 9rem;
+  height: 9rem;
+  padding: 0;
+  margin: 1rem; 
+}
+#postArea article a {
+  width: 9rem;
+  height: 9rem;
+}
+
+#postArea .article-header .entry-title {
+  padding: .5rem;
+  width: 9rem;
+}
+
+.manuscript {
+  display: grid;
+  grid-template-rows: 3rem 100%;
+  grid-template-columns: 33.33% 33.33% 33.33%;
+  grid-template-areas:"imageButton transcriptionButton translationButton"
+                      "content content content";
+  border: solid 2px #900000;
+  background-color: #211;
+}
+
+.post-page .entry-content {
+  padding: 0;
+}
+
+
 }
 
 
@@ -3144,6 +3303,17 @@ a:hover .catico img {
   html {
     font-size: 150% !important;
   }
+
+  .manuscript {
+    display: grid;
+    grid-template-rows: 3rem 2fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:"picture transcriptionButton translationButton"
+                        "picture content content";
+    border: solid 2px #900000;
+    background-color: #211;
+  }
+
 /* HEADER */
 /* MAIN */
 /* SECTION */

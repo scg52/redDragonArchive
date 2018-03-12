@@ -20,13 +20,13 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'benrodia_redDragonArchive');
+define('DB_NAME', 'reddrago_archive');
 
 /** MySQL database username */
-define('DB_USER', 'benrodia_archive');
+define('DB_USER', 'reddrago_archiveUser');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'rd_archive_PSSWRD');
+define('DB_PASSWORD', '$R3ddragonvoyag3');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
