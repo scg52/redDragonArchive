@@ -20,15 +20,6 @@
 								<section class="entry-content cf">
 
 									<div class="manuscript">
-										<div id="transcript-button">
-											Transcript
-										</div>
-                                        <div id="translation-button">
-											Translation
-										</div>
-										<div id="visible">
-											<!-- uses dynamic content -->
-										</div>
 									<?php
 									    $pageNum;
 									    if (isset($_GET["page"])) {
@@ -46,17 +37,21 @@
 
 										// content
 
-									    ?> <div id="manuscript-picture" class="post-picture"> <?php
+									    ?><div id="manuscript-picture" class="post-picture"> <?php
 									    echo $manuscript[0];
 									    ?></div> <!-- post-picture -->
 
-									    <div id="transcription-content" class="display-text"> <?php
-									    echo $manuscript[1];
-									    ?> </div> <!-- translation-content -->
+                                        <div class="text-content">
+                                          <div id="transcript-button" class="accordion">Transcription</div>
+									      <div id="transcription-content" class="panel"> <?php
+									      echo $manuscript[1];
+									      ?> </div> <!-- translation-content -->
 									    	 
-									    <div id="translation-content" class="display-text"> <?php
-									    echo $manuscript[2];
-									    ?> </div>  <!-- transcription-content --> 
+									      <div id="translation-button" class="accordion">Translation</div>
+									      <div id="translation-content" class="panel"> <?php
+									      echo $manuscript[2];
+									      ?> </div>  <!-- transcription-content --> 
+									    </div>
 									    
 									</div> <!-- manuscript -->
 
@@ -65,37 +60,29 @@
 
                                     <script type="text/javascript">
                                         
-                                        var transcriptEl = document.getElementById('transcript-button');
-                                        var translationEl = document.getElementById('translation-button');
+                                        var acc = document.getElementsByClassName("accordion");
 
-                                        var transcriptCont = document.getElementById('transcription-content');
-                                    	var visibleEl = document.getElementById('visible');
-                                        visibleEl.innerHTML = transcriptCont.innerHTML;
+                                        for (var i = 0; i < acc.length; i++) {
+                                          acc[i].addEventListener("click", function() {
+                                            this.classList.toggle("active");
+                                            var panel = this.nextElementSibling;
+                                            if (panel.style.maxHeight){
+                                              panel.style.maxHeight = null;
+                                            } else {
+                                              panel.style.maxHeight = panel.scrollHeight + "px";
+                                            } 
+                                            
+                                            if (hasClass(panel, 'display')) {
+                                              panel.classList.remove('display');
+                                            } else{
+                                            	panel.classList.add('display');
+                                            }
+                                          });
+                                        }
 
-                                        transcriptEl.style.backgroundColor = "#5B0F0F";
-                                        
-                                        //show transcript
-                                        transcriptEl.addEventListener("click", function(){
-                                    	  var transcriptCont = document.getElementById('transcription-content');
-                                    	  var visibleEl = document.getElementById('visible');
-                                          visibleEl.innerHTML = transcriptCont.innerHTML;
-
-                                          this.style.backgroundColor = "#5B0F0F";
-                                          var translationEl = document.getElementById('translation-button');
-                                          translationEl.style.backgroundColor = "#9a0000";
-                                        });
-
-                                        //show translation
-                                        translationEl.addEventListener("click", function(){
-                                    	  var translationCont = document.getElementById('translation-content');
-                                    	  var visibleEl = document.getElementById('visible');
-                                          visibleEl.innerHTML = translationCont.innerHTML;
-
-                                          this.style.backgroundColor = "#5B0F0F";
-                                          var transcriptEl = document.getElementById('transcript-button');
-                                          transcriptEl.style.backgroundColor = "#9a0000";
-                                        });
-
+                                        function hasClass(element, cls) {
+                                            return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+                                        }
                                     </script>
 
 								</section> <!-- end article section -->
